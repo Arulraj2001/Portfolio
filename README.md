@@ -48,25 +48,6 @@ Profile Information:
 
 Update text content in HTML file
 
-
-Skills Section:
-
-html
-<div class="skill-box">
-    <div class="skill-title">
-        <img src="img/your-skill-icon.png">
-        <h3>Your Skill</h3>
-    </div>
-</div>
-Colors:
-Modify in style.css:
-
-css
-:root {
-    --main-color: #your-color;
-    --text-color: #your-text-color;
-}
-
 📞 Contact Me
 LinkedIn
 GitHub
