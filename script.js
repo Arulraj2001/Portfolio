@@ -17,6 +17,23 @@ window.onscroll = () => {
     navbar.classList.remove('active');
 };
 
+// Fix for work card preview images fallback
+document.querySelectorAll('.preview-img').forEach(img => {
+    img.addEventListener('error', function() {
+        if (!this.src.includes('placehold.co')) {
+            this.src = 'https://placehold.co/600x400/1e1f2c/4a9beb?text=Live+Preview';
+        }
+    });
+});
+
+// Add works section to scroll reveal (if you're using ScrollReveal)
+if (typeof sr !== 'undefined') {
+    sr.reveal('.works', { delay: 120, origin: 'bottom' });
+} else if (typeof ScrollReveal !== 'undefined') {
+    const reveal = ScrollReveal({ distance: '25px', duration: 500, reset: false });
+    reveal.reveal('.works', { delay: 120, origin: 'bottom' });
+}
+
 const sr = ScrollReveal ({
     distance: '25px',
     duration: 250,
