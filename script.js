@@ -1,21 +1,37 @@
 const header = document.querySelector("header");
 
-window.addEventListener ("scroll", function() {
-    header.classList.toggle ("sticky", window.scrollY >0);
+window.addEventListener("scroll", function() {
+    header.classList.toggle("sticky", window.scrollY > 0);
 });
 
 let menu = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
-menu.onclick = () => {
-    menu.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
+if (menu) {
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('active');
+    };
+}
 
 window.onscroll = () => {
-    menu.classList.remove('bx-x');
-    navbar.classList.remove('active');
+    if (menu) {
+        menu.classList.remove('bx-x');
+    }
+    if (navbar) {
+        navbar.classList.remove('active');
+    }
 };
+
+// ScrollReveal Animations
+const sr = ScrollReveal({
+    distance: '25px',
+    duration: 250,
+    reset: true
+});
+
+sr.reveal('.home-text', { delay: 190, origin: 'bottom' });
+sr.reveal('.about, .inner, .experience, .achievement, .portfolio, .works, .POR, .contact', { delay: 200, origin: 'bottom' });
 
 // Fix for work card preview images fallback
 document.querySelectorAll('.preview-img').forEach(img => {
@@ -26,20 +42,10 @@ document.querySelectorAll('.preview-img').forEach(img => {
     });
 });
 
-// Add works section to scroll reveal (if you're using ScrollReveal)
-if (typeof sr !== 'undefined') {
-    sr.reveal('.works', { delay: 120, origin: 'bottom' });
-} else if (typeof ScrollReveal !== 'undefined') {
-    const reveal = ScrollReveal({ distance: '25px', duration: 500, reset: false });
-    reveal.reveal('.works', { delay: 120, origin: 'bottom' });
-}
-
-const sr = ScrollReveal ({
-    distance: '25px',
-    duration: 250,
-    reset: true
-})
-
-sr.reveal('.home-text',{delay:190, origin:'bottom'})
-
-sr.reveal('.about,.services,.portfolio,.contact',{delay:200, origin:'bottom'})
+// Optional: Add smooth hover effect for work cards (ensures consistency)
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        // Additional hover effects can be added here if needed
+        this.style.transition = 'all .40s ease';
+    });
+});
