@@ -95,3 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('Could not load data.json, using static HTML fallback:', err);
         });
 });
+
+// Advanced Feature: Scroll Progress Bar
+window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = winScroll && height ? (winScroll / height) * 100 : 0;
+    const progressEl = document.querySelector('.scroll-progress');
+    if (progressEl) {
+        progressEl.style.width = scrolled + '%';
+    }
+});

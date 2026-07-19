@@ -36,7 +36,7 @@ body {
     position: relative;
 }
 
-/* Digital Grid Backdrop Pattern */
+/* Digital Grid Backdrop Pattern with Drift Animation */
 body::before {
     content: '';
     position: absolute;
@@ -50,7 +50,62 @@ body::before {
     background-size: 40px 40px;
     z-index: -2;
     pointer-events: none;
+    animation: gridDrift 20s linear infinite;
 }
+
+@keyframes gridDrift {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+}
+
+/* Floating Background Code Particles */
+.bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    color: rgba(74, 155, 235, 0.04);
+    font-family: 'Fira Code', monospace;
+    font-size: 1.4rem;
+    font-weight: 600;
+    user-select: none;
+    animation: drift 25s infinite linear;
+}
+
+.p-1 { top: 15%; left: 10%; animation-duration: 28s; animation-delay: 0s; }
+.p-2 { top: 40%; left: 80%; animation-duration: 32s; animation-delay: -5s; }
+.p-3 { top: 70%; left: 20%; animation-duration: 24s; animation-delay: -10s; }
+.p-4 { top: 85%; left: 75%; animation-duration: 30s; animation-delay: -3s; }
+.p-5 { top: 25%; left: 65%; animation-duration: 26s; animation-delay: -12s; }
+.p-6 { top: 55%; left: 15%; animation-duration: 34s; animation-delay: -8s; }
+.p-7 { top: 90%; left: 35%; animation-duration: 22s; animation-delay: -15s; }
+.p-8 { top: 5%; left: 85%; animation-duration: 36s; animation-delay: -2s; }
+
+@keyframes drift {
+    0% {
+        transform: translateY(105vh) rotate(0deg) scale(0.9);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-105vh) rotate(360deg) scale(1.1);
+        opacity: 0;
+    }
+}
+
 
 /* Floating Cyber Glow Orbs */
 .glowing-orb {
@@ -86,6 +141,18 @@ body::before {
     0% { transform: translate(0, 0) rotate(0deg) scale(1); }
     50% { transform: translate(60px, 40px) rotate(180deg) scale(1.1); }
     100% { transform: translate(-40px, -60px) rotate(360deg) scale(0.9); }
+}
+
+/* Scroll Progress Bar styling */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--main-color), var(--accent-color), var(--cyan-color));
+    z-index: 2000;
+    width: 0%;
+    transition: width 0.1s ease;
 }
 
 /* Custom Scrollbar */
@@ -201,10 +268,21 @@ section {
     line-height: 1.1;
     letter-spacing: -1px;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #ffffff, var(--main-color));
+    color: #fff;
+}
+
+.home-text h1 span {
+    background: linear-gradient(90deg, var(--main-color), var(--accent-color), var(--cyan-color), var(--main-color));
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: textShine 5s linear infinite;
+}
+
+@keyframes textShine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
 }
 
 .home-text h3 {
@@ -343,6 +421,7 @@ section {
     box-shadow: 0 4px 14px var(--main-glow);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: pulseGlow 2.5s infinite;
 }
 
 .btn:hover {
@@ -350,6 +429,13 @@ section {
     box-shadow: 0 6px 20px var(--main-glow);
     background: transparent;
     color: var(--main-color);
+    animation: none;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(74, 155, 235, 0.45), 0 4px 14px var(--main-glow); }
+    70% { box-shadow: 0 0 0 10px rgba(74, 155, 235, 0), 0 4px 14px var(--main-glow); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 155, 235, 0), 0 4px 14px var(--main-glow); }
 }
 
 /* ================= SECTION HEADINGS ================= */
