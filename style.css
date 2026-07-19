@@ -79,9 +79,9 @@ body::before {
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(60px, 40px) scale(1.1); }
-    100% { transform: translate(-40px, -60px) scale(0.9); }
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    50% { transform: translate(60px, 40px) rotate(180deg) scale(1.1); }
+    100% { transform: translate(-40px, -60px) rotate(360deg) scale(0.9); }
 }
 
 /* Custom Scrollbar */
@@ -404,8 +404,16 @@ section {
     transform: translateZ(15px); /* Push icon layer out in 3D */
 }
 
+.tech_img i {
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .skill-box:hover .tech_img {
     transform: scale(1.1) translateZ(25px);
+}
+
+.skill-box:hover .tech_img i {
+    transform: rotateY(360deg) scale(1.1);
 }
 
 .skill-title h3 {
@@ -461,7 +469,7 @@ section {
 }
 
 .box:hover i {
-    transform: scale(1.1) translateZ(25px);
+    transform: scale(1.1) rotate(15deg) translateZ(25px);
 }
 
 .box:hover h3 {
@@ -772,7 +780,7 @@ section {
 }
 
 .contact-icons a i:hover {
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-5px) scale(1.05) rotate(360deg);
     color: var(--text-color);
     background: var(--main-color);
     border-color: var(--main-color);
