@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Dashboard Admin</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Premium Glassmorphic Dark Theme */
+        :root {
+            --bg-color: #020312;
+            --card-color: #12141c;
+            --main-color: #4a9beb;
+            --text-color: #fff;
+            --second-color: gray;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 40px 5%;
+        }
+        .admin-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(74, 155, 235, 0.2);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(135deg, #fff, var(--main-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .btn {
+            background: var(--main-color);
+            color: #fff;
+            border: 1px solid var(--main-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 155, 235, 0.3);
+        }
+        .btn-sec {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ddd;
+        }
+        .btn-danger {
+            background: #eb4a4a;
+            border-color: #eb4a4a;
+        }
+        .card {
+            background: var(--card-color);
+            border: 1px solid rgba(74, 155, 235, 0.15);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: var(--main-color);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #ddd;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: #fff;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.3s;
+        }
+        input:focus {
+            border-color: var(--main-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .project-item {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .project-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 8px;
+        }
+        .action-icon {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .action-icon:hover {
+            background: rgba(74, 155, 235, 0.2);
+            color: var(--main-color);
+        }
+        .action-icon.delete:hover {
+            background: rgba(235, 74, 74, 0.2);
+            color: #eb4a4a;
+        }
+        .status-banner {
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            animation: fadeIn 0.4s ease;
+        }
+        .status-success {
+            background: rgba(74, 235, 155, 0.12);
+            color: #4aeb9b;
+            border: 1px solid rgba(74, 235, 155, 0.3);
+        }
+        .status-error {
+            background: rgba(235, 74, 74, 0.12);
+            color: #eb4a4a;
+            border: 1px solid rgba(235, 74, 74, 0.3);
+        }
+        .status-loading {
+            background: rgba(74, 155, 235, 0.12);
+            color: var(--main-color);
+            border: 1px solid rgba(74, 155, 235, 0.3);
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: var(--second-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 650px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <div>
+                <h1>Portfolio Admin</h1>
+                <p style="color: var(--second-color); margin: 5px 0 0; font-size: 0.9rem;">Update project stats and client works dynamically</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" target="_blank"><i class='bx bx-home-alt'></i> View Site</a>
+            </div>
+        </header>
+
+        <!-- Status Notification Banner -->
+        <div id="status-banner" class="status-banner">
+            <i id="status-icon" class='bx bx-loader-alt bx-spin'></i>
+            <span id="status-text">Saving changes...</span>
+        </div>
+
+        <!-- Git Config Card -->
+        <div class="card">
+            <h2><i class='bx bxl-github' style="margin-right: 8px;"></i>GitHub Connection Configuration</h2>
+            <p style="font-size: 0.85rem; color: var(--second-color); margin-top: -10px; margin-bottom: 20px;">
+                Required to publish edits directly to your GitHub Pages website. Access tokens are saved locally in your browser storage.
+            </p>
+            <div class="form-group">
+                <label for="git-token">GitHub Personal Access Token (PAT)</label>
+                <input type="password" id="git-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxx">
+            </div>
+            <div class="stats-grid">
+                <div class="form-group">
+                    <label for="git-user">GitHub Username</label>
+                    <input type="text" id="git-user" value="Arulraj2001">
+                </div>
+                <div class="form-group">
+                    <label for="git-repo">Repository Name</label>
+                    <input type="text" id="git-repo" value="Portfolio">
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Counter Card -->
+        <div class="card">
+            <h2><i class='bx bx-bar-chart-square' style="margin-right: 8px;"></i>Deliverables Metrics Counters</h2>
+            <div class="stats-grid">
+                <div class="form-group">
+                    <label for="stat-student">Student Projects Completed</label>
+                    <input type="text" id="stat-student" placeholder="80+">
+                </div>
+                <div class="form-group">
+                    <label for="stat-brand">Brand Websites Launched</label>
+                    <input type="text" id="stat-brand" placeholder="3+">
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Card -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 10px; margin-bottom: 20px;">
+                <h2 style="border: none; margin: 0; padding: 0;"><i class='bx bx-briefcase' style="margin-right: 8px;"></i>Selected Client Works</h2>
+                <button type="button" class="btn btn-sec" onclick="addProject()"><i class='bx bx-plus'></i> Add Project</button>
+            </div>
+            <div id="projects-list">
+                <!-- Project items rendered dynamically here -->
+            </div>
+        </div>
+
+        <!-- Save Button Footer -->
+        <div style="text-align: right; margin-bottom: 50px;">
+            <button type="button" class="btn" onclick="saveData()"><i class='bx bx-cloud-upload'></i> Save & Publish Content</button>
+        </div>
+    </div>
+
+    <script>
+        // Default local storage keys
+        const STORAGE_KEY_TOKEN = 'portfolio_admin_git_token';
+        const STORAGE_KEY_USER = 'portfolio_admin_git_user';
+        const STORAGE_KEY_REPO = 'portfolio_admin_git_repo';
+
+        let currentDataset = {
+            "stats": {
+                "studentProjects": "80+",
+                "brandWebsites": "3+"
+            },
+            "projects": [
+                {
+                    "title": "ApplyAppli - SaaS Job Tracker",
+                    "link": "https://arulraj2001.github.io/applyappli/",
+                    "previewImg": "https://arulraj2001.github.io/applyappli/preview.png",
+                    "techStack": ["HTML5", "CSS3", "JavaScript", "LocalStorage"]
+                },
+                {
+                    "title": "Interactive Diwali Campaign Hub",
+                    "link": "https://diwali-giveaway.vercel.app/",
+                    "previewImg": "https://diwali-giveaway.vercel.app/og-image.png",
+                    "techStack": ["React.js", "Vercel", "API Integration"]
+                },
+                {
+                    "title": "Dynamic Certificate Generator",
+                    "link": "https://valentines-cert.vercel.app/",
+                    "previewImg": "https://valentines-cert.vercel.app/preview.jpg",
+                    "techStack": ["HTML5", "CSS3", "JavaScript"]
+                },
+                {
+                    "title": "Full-Stack Productivity Dashboard",
+                    "link": "https://study-tracker-dash--medidate2023.replit.app/",
+                    "previewImg": "https://study-tracker-dash--medidate2023.replit.app/static/preview.png",
+                    "techStack": ["Python", "Flask", "Chart.js", "MySQL"]
+                },
+                {
+                    "title": "Weather Analytics Portal",
+                    "link": "https://arulraj2001.github.io/weatherProject/",
+                    "previewImg": "img/web3.png",
+                    "techStack": ["HTML5", "CSS3", "JavaScript", "API Integration"]
+                }
+            ]
+        };
+
+        // Initialize connection info and load current datasets
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load Git configurations from storage
+            if (localStorage.getItem(STORAGE_KEY_TOKEN)) {
+                document.getElementById('git-token').value = localStorage.getItem(STORAGE_KEY_TOKEN);
+            }
+            if (localStorage.getItem(STORAGE_KEY_USER)) {
+                document.getElementById('git-user').value = localStorage.getItem(STORAGE_KEY_USER);
+            }
+            if (localStorage.getItem(STORAGE_KEY_REPO)) {
+                document.getElementById('git-repo').value = localStorage.getItem(STORAGE_KEY_REPO);
+            }
+
+            // Fetch current local dataset if on a web server
+            fetch('data.json')
+                .then(res => res.json())
+                .then(data => {
+                    currentDataset = data;
+                    populateDashboard();
+                })
+                .catch(err => {
+                    console.warn('Using pre-filled default project data (local file security active):', err);
+                    populateDashboard(); // Fallback: load the pre-filled list
+                });
+        });
+
+        function populateDashboard() {
+            // Render Stats
+            document.getElementById('stat-student').value = currentDataset.stats.studentProjects || '';
+            document.getElementById('stat-brand').value = currentDataset.stats.brandWebsites || '';
+
+            // Render Projects
+            const projectsList = document.getElementById('projects-list');
+            projectsList.innerHTML = '';
+            if (currentDataset.projects && currentDataset.projects.length > 0) {
+                currentDataset.projects.forEach(project => {
+                    renderProjectItem(project);
+                });
+            }
+        }
+
+        function renderProjectItem(project = {}) {
+            const projectsList = document.getElementById('projects-list');
+            const projectItem = document.createElement('div');
+            projectItem.className = 'project-item';
+            
+            const title = project.title || '';
+            const link = project.link || '';
+            const previewImg = project.previewImg || '';
+            const techStack = project.techStack ? project.techStack.join(', ') : '';
+
+            projectItem.innerHTML = `
+                <div class="project-actions">
+                    <button type="button" class="action-icon" title="Move Up" onclick="moveProject(this, -1)"><i class='bx bx-chevron-up'></i></button>
+                    <button type="button" class="action-icon" title="Move Down" onclick="moveProject(this, 1)"><i class='bx bx-chevron-down'></i></button>
+                    <button type="button" class="action-icon delete" title="Delete Card" onclick="deleteProject(this)"><i class='bx bx-trash'></i></button>
+                </div>
+                <div class="form-group" style="padding-right: 120px;">
+                    <label>Project Title</label>
+                    <input type="text" class="proj-title" value="${title}" placeholder="e.g. ApplyAppli - SaaS Job Tracker">
+                </div>
+                <div class="form-group">
+                    <label>Live Website URL</label>
+                    <input type="text" class="proj-link" value="${link}" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label>Preview Image URL</label>
+                    <input type="text" class="proj-image" value="${previewImg}" placeholder="img/web3.png or https://...">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Tech Stack Tags (Comma separated)</label>
+                    <input type="text" class="proj-tech" value="${techStack}" placeholder="React.js, HTML5, CSS3, LocalStorage">
+                </div>
+            `;
+            projectsList.appendChild(projectItem);
+        }
+
+        function addProject() {
+            renderProjectItem();
+        }
+
+        function deleteProject(button) {
+            if (confirm('Are you sure you want to remove this project card?')) {
+                const item = button.closest('.project-item');
+                item.remove();
+            }
+        }
+
+        function moveProject(button, direction) {
+            const item = button.closest('.project-item');
+            if (direction === -1 && item.previousElementSibling) {
+                item.parentNode.insertBefore(item, item.previousElementSibling);
+            } else if (direction === 1 && item.nextElementSibling) {
+                item.parentNode.insertBefore(item.nextElementSibling, item);
+            }
+        }
+
+        function showStatus(text, type) {
+            const banner = document.getElementById('status-banner');
+            const icon = document.getElementById('status-icon');
+            const textEl = document.getElementById('status-text');
+
+            banner.className = 'status-banner';
+            icon.className = 'bx ';
+
+            if (type === 'success') {
+                banner.classList.add('status-success');
+                icon.classList.add('bx-check-circle');
+            } else if (type === 'error') {
+                banner.classList.add('status-error');
+                icon.classList.add('bx-error-circle');
+            } else {
+                banner.classList.add('status-loading');
+                icon.classList.add('bx-loader-alt', 'bx-spin');
+            }
+
+            textEl.textContent = text;
+            banner.style.display = 'flex';
+
+            // Auto dismiss success banners
+            if (type === 'success' || type === 'error') {
+                setTimeout(() => {
+                    // Don't auto dismiss errors immediately if they need reading, but hide success
+                    if (type === 'success') banner.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        function saveData() {
+            const token = document.getElementById('git-token').value.trim();
+            const user = document.getElementById('git-user').value.trim();
+            const repo = document.getElementById('git-repo').value.trim();
+
+            if (!token) {
+                alert('Please enter your GitHub Access Token to authorize edits.');
+                return;
+            }
+            if (!user || !repo) {
+                alert('GitHub username and repository values are required.');
+                return;
+            }
+
+            // Save configurations
+            localStorage.setItem(STORAGE_KEY_TOKEN, token);
+            localStorage.setItem(STORAGE_KEY_USER, user);
+            localStorage.setItem(STORAGE_KEY_REPO, repo);
+
+            showStatus('Processing inputs and formatting database...', 'loading');
+
+            // Format stats
+            const stats = {
+                studentProjects: document.getElementById('stat-student').value.trim(),
+                brandWebsites: document.getElementById('stat-brand').value.trim()
+            };
+
+            // Format projects
+            const projects = [];
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            projectItems.forEach(item => {
+                const title = item.querySelector('.proj-title').value.trim();
+                const link = item.querySelector('.proj-link').value.trim();
+                const previewImg = item.querySelector('.proj-image').value.trim();
+                const techStr = item.querySelector('.proj-tech').value.trim();
+
+                if (title && link) {
+                    const techStack = techStr ? techStr.split(',').map(s => s.trim()).filter(s => s.length > 0) : [];
+                    projects.push({ title, link, previewImg, techStack });
+                }
+            });
+
+            const dataset = { stats, projects };
+
+            showStatus('Connecting to GitHub API...', 'loading');
+
+            const filePath = 'data.json';
+            const url = `https://api.github.com/repos/${user}/${repo}/contents/${filePath}`;
+            const headers = {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            };
+
+            // 1. Fetch file to get current SHA
+            fetch(url, { headers })
+                .then(res => {
+                    if (res.status === 404) {
+                        return null; // File doesn't exist, build new file
+                    }
+                    if (!res.ok) {
+                        throw new Error(`Failed to fetch file metadata: ${res.statusText}`);
+                    }
+                    return res.json();
+                })
+                .then(fileData => {
+                    const sha = fileData ? fileData.sha : null;
+                    const contentBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(dataset, null, 2))));
+                    
+                    const payload = {
+                        message: 'Update portfolio stats and projects (via Portfolio Admin)',
+                        content: contentBase64
+                    };
+                    if (sha) payload.sha = sha;
+
+                    showStatus('Pushing database changes to GitHub...', 'loading');
+
+                    // 2. Commit update back to GitHub
+                    return fetch(url, {
+                        method: 'PUT',
+                        headers,
+                        body: JSON.stringify(payload)
+                    });
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(errData => {
+                            throw new Error(errData.message || 'Push commit failed.');
+                        });
+                    }
+                    return res.json();
+                })
+                .then(result => {
+                    showStatus('Successfully published to website! Pages is redeploying. Changes visible in 1-2 minutes.', 'success');
+                })
+                .catch(err => {
+                    let errMsg = err.message;
+                    if (errMsg === 'Not Found') {
+                        errMsg = 'GitHub Repository not found, or your Access Token lacks write access. Ensure your Token has the classic "repo" scope or fine-grained "Contents: Read & Write" permission, and matches repository casing!';
+                    }
+                    showStatus(`Publication failed: ${errMsg}`, 'error');
+                    console.error(err);
+                });
+        }
+    </script>
+</body>
+</html>

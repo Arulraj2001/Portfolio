@@ -1624,3 +1624,66 @@ img{
         padding: 8px 16px;
     }
 }
+
+/* My Work Process Section */
+.process {
+    background: #020312;
+}
+
+.process-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+.process-step {
+    padding: 35px 30px;
+    background: #12141c;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(74, 155, 235, 0.1);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.process-step:hover {
+    transform: translateY(-8px);
+    border-color: var(--main-color);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.step-num {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: rgba(74, 155, 235, 0.15);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    transition: all 0.4s ease;
+}
+
+.process-step:hover .step-num {
+    color: var(--main-color);
+    transform: scale(1.1);
+}
+
+.process-step h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.process-step p {
+    color: var(--second-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 650px) {
+    .process-timeline {
+        grid-template-columns: 1fr;
+    }
+}
+
