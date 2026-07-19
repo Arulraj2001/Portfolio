@@ -60,6 +60,7 @@
     <!---custom css link--->
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <link rel="preconnect" href="https://unpkg.com">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +71,7 @@
 <body>
     <!---header--->
     <header style="position: fixed; right: 0; top: 0; width: 100%; z-index: 1000; display: flex; align-items: center; justify-content: space-between; background: rgba(2, 3, 18, 0.95); backdrop-filter: blur(10px); padding: 18px 5%; border-bottom: 1px solid rgba(74, 155, 235, 0.2); transition: all .40s ease; white-space: nowrap;">
-        <h2 class="logo" style="font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #fff, #4a9beb); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 1px; flex-shrink: 0;">Portfo<span style="background: linear-gradient(135deg, #4a9beb, #6ab0f5); -webkit-background-clip: text; background-clip: text; color: transparent;">lio</span></h2>
+        <span class="logo" style="font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #fff, #4a9beb); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 1px; flex-shrink: 0; display: inline-block;">Portfo<span style="background: linear-gradient(135deg, #4a9beb, #6ab0f5); -webkit-background-clip: text; background-clip: text; color: transparent;">lio</span></span>
         <div id="menu-icon" class="bx bx-menu" style="font-size: 2.2rem; color: #fff; cursor: pointer; display: none; margin-left: auto;"></div>
         <ul class="navbar" style="display: flex; align-items: center; gap: 5px; flex-wrap: nowrap; margin: 0; padding: 0;">
             <li style="list-style: none; flex-shrink: 0;"><a href="#home" style="color: #fff; font-size: 0.92rem; font-weight: 600; padding: 8px 16px; margin: 0; border-radius: 0.5rem; transition: all 0.3s ease; text-decoration: none; white-space: nowrap; display: inline-block;">Home</a></li>
@@ -142,7 +143,7 @@
 
     <!---home--->
     <section class="home" id="home">
-        <video autoplay loop muted plays-inline class="back-video">
+        <video autoplay loop muted playsinline preload="auto" class="back-video">
             <source src="img/bg2.mp4" type="video/mp4">
         </video>
         <div class="home-text">
@@ -159,7 +160,7 @@
     <!---about--->
      <section class="about" id="about">
         <div class="about-img">
-            <img src="img/profile.png" alt="Arulraj Profile">
+            <img src="img/profile.png" alt="Arulraj Profile" loading="lazy">
         </div>
 
         <div class="about-text">
@@ -217,7 +218,7 @@
     <!-- Tech Stack / Languages -->
     <div class="inner">
         <div class="Tech_header">
-            <h1>Core Technology Stack</h1>
+            <h2>Core Technology Stack</h2>
         </div>
         <div class="Tcontainer">
             <div class="skill-box">
@@ -315,8 +316,8 @@
             <!------Intern 1------->
             <div class="box">
                 <div class="certificate-wrapper">
-                    <img src="img/PU_logo.png" alt="Periyar University Logo">
-                    <img src="img/CDOE certificate.jpg" alt="Certificate" class="hover-image certificate-image">
+                    <img src="img/PU_logo.png" alt="Periyar University Logo" loading="lazy">
+                    <img src="img/CDOE certificate.jpg" alt="Certificate" class="hover-image certificate-image" loading="lazy">
                 </div>
                 <h3>Centre for Distance and Online Education (CDOE),<br>Periyar University Salem</h3>
                 <h4><span>Software Development Intern</span></h4>
