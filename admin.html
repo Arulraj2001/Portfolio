@@ -269,6 +269,17 @@
             </div>
         </div>
 
+        <!-- Testimonials Card -->
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 10px; margin-bottom: 20px;">
+                <h2 style="border: none; margin: 0; padding: 0;"><i class='bx bx-message-rounded-dots' style="margin-right: 8px;"></i>Client Testimonials</h2>
+                <button type="button" class="btn btn-sec" onclick="addTestimonial()"><i class='bx bx-plus'></i> Add Testimonial</button>
+            </div>
+            <div id="testimonials-list">
+                <!-- Testimonial items rendered dynamically here -->
+            </div>
+        </div>
+
         <!-- Save Button Footer -->
         <div style="text-align: right; margin-bottom: 50px;">
             <button type="button" class="btn" onclick="saveData()"><i class='bx bx-cloud-upload'></i> Save & Publish Content</button>
@@ -317,6 +328,22 @@
                     "previewImg": "img/weather.png",
                     "techStack": ["HTML5", "CSS3", "JavaScript", "API Integration"]
                 }
+            ],
+            "testimonials": [
+                {
+                    "clientName": "Sarah Jenkins",
+                    "clientRole": "Founder, ShopSphere E-commerce",
+                    "avatar": "https://placehold.co/100x100/1e1f2c/4a9beb?text=SJ",
+                    "rating": 5,
+                    "text": "Arulraj delivered our e-commerce landing page ahead of schedule. The animations are incredibly smooth, and our conversion rate increased by 20% after launch. Highly recommended!"
+                },
+                {
+                    "clientName": "David Chen",
+                    "clientRole": "CTO, FinTech Stack",
+                    "avatar": "https://placehold.co/100x100/1e1f2c/8b5cf6?text=DC",
+                    "rating": 5,
+                    "text": "An exceptionally skilled frontend contractor. He built our study tracking dashboard with React and Python. Clean code, great communication, and fast turnaround."
+                }
             ]
         };
 
@@ -359,12 +386,21 @@
                     renderProjectItem(project);
                 });
             }
+
+            // Render Testimonials
+            const testimonialsList = document.getElementById('testimonials-list');
+            testimonialsList.innerHTML = '';
+            if (currentDataset.testimonials && currentDataset.testimonials.length > 0) {
+                currentDataset.testimonials.forEach(item => {
+                    renderTestimonialItem(item);
+                });
+            }
         }
 
         function renderProjectItem(project = {}) {
             const projectsList = document.getElementById('projects-list');
             const projectItem = document.createElement('div');
-            projectItem.className = 'project-item';
+            projectItem.className = 'project-item proj-item';
             
             const title = project.title || '';
             const link = project.link || '';
@@ -397,12 +433,66 @@
             projectsList.appendChild(projectItem);
         }
 
+        function renderTestimonialItem(item = {}) {
+            const testimonialsList = document.getElementById('testimonials-list');
+            const testimonialItem = document.createElement('div');
+            testimonialItem.className = 'project-item testimonial-item';
+            
+            const name = item.clientName || '';
+            const role = item.clientRole || '';
+            const avatar = item.avatar || '';
+            const rating = item.rating || 5;
+            const text = item.text || '';
+
+            testimonialItem.innerHTML = `
+                <div class="project-actions">
+                    <button type="button" class="action-icon" title="Move Up" onclick="moveProject(this, -1)"><i class='bx bx-chevron-up'></i></button>
+                    <button type="button" class="action-icon" title="Move Down" onclick="moveProject(this, 1)"><i class='bx bx-chevron-down'></i></button>
+                    <button type="button" class="action-icon delete" title="Delete Card" onclick="deleteTestimonial(this)"><i class='bx bx-trash'></i></button>
+                </div>
+                <div class="form-group" style="padding-right: 120px;">
+                    <label>Client Name</label>
+                    <input type="text" class="test-name" value="${name}" placeholder="e.g. Sarah Jenkins">
+                </div>
+                <div class="stats-grid">
+                    <div class="form-group">
+                        <label>Client Role / Company</label>
+                        <input type="text" class="test-role" value="${role}" placeholder="e.g. Founder, ShopSphere E-commerce">
+                    </div>
+                    <div class="form-group">
+                        <label>Avatar Image URL</label>
+                        <input type="text" class="test-avatar" value="${avatar}" placeholder="https://...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Star Rating (1 - 5)</label>
+                    <input type="text" class="test-rating" value="${rating}" placeholder="5">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label>Testimonial Feedback Text</label>
+                    <input type="text" class="test-text" value="${text}" placeholder="Client feedback details...">
+                </div>
+            `;
+            testimonialsList.appendChild(testimonialItem);
+        }
+
         function addProject() {
             renderProjectItem();
         }
 
         function deleteProject(button) {
             if (confirm('Are you sure you want to remove this project card?')) {
+                const item = button.closest('.project-item');
+                item.remove();
+            }
+        }
+
+        function addTestimonial() {
+            renderTestimonialItem();
+        }
+
+        function deleteTestimonial(button) {
+            if (confirm('Are you sure you want to remove this client testimonial card?')) {
                 const item = button.closest('.project-item');
                 item.remove();
             }
@@ -477,7 +567,7 @@
 
             // Format projects
             const projects = [];
-            const projectItems = document.querySelectorAll('.project-item');
+            const projectItems = document.querySelectorAll('.proj-item');
             
             projectItems.forEach(item => {
                 const title = item.querySelector('.proj-title').value.trim();
@@ -491,7 +581,23 @@
                 }
             });
 
-            const dataset = { stats, projects };
+            // Format testimonials
+            const testimonials = [];
+            const testimonialItems = document.querySelectorAll('.testimonial-item');
+
+            testimonialItems.forEach(item => {
+                const clientName = item.querySelector('.test-name').value.trim();
+                const clientRole = item.querySelector('.test-role').value.trim();
+                const avatar = item.querySelector('.test-avatar').value.trim();
+                const rating = parseInt(item.querySelector('.test-rating').value.trim(), 10) || 5;
+                const text = item.querySelector('.test-text').value.trim();
+
+                if (clientName && text) {
+                    testimonials.push({ clientName, clientRole, avatar, rating, text });
+                }
+            });
+
+            const dataset = { stats, projects, testimonials };
 
             showStatus('Connecting to GitHub API...', 'loading');
 

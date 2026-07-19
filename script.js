@@ -90,6 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).join('');
                 initImageFallback();
             }
+            
+            // Render testimonial items
+            const testimonialsContainer = document.getElementById('testimonials-container');
+            if (testimonialsContainer && data.testimonials) {
+                // Duplicate items to ensure seamless marquee looping
+                const marqueeList = [...data.testimonials, ...data.testimonials];
+                testimonialsContainer.innerHTML = marqueeList.map(item => {
+                    const stars = '★'.repeat(item.rating) + '☆'.repeat(5 - item.rating);
+                    return `
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="${item.avatar}" alt="${item.clientName}" class="client-avatar" onerror="this.src='https://placehold.co/100x100/1e1f2c/4a9beb?text=${item.clientName.charAt(0)}'">
+                                <div class="client-info">
+                                    <h3>${item.clientName}</h3>
+                                    <p>${item.clientRole}</p>
+                                </div>
+                            </div>
+                            <div class="rating-stars">${stars}</div>
+                            <p class="testimonial-text">"${item.text}"</p>
+                        </div>
+                    `;
+                }).join('');
+            }
         })
         .catch(err => {
             console.warn('Could not load data.json, using static HTML fallback:', err);

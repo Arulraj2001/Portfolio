@@ -57,5 +57,21 @@
         "API Integration"
       ]
     }
+  ],
+  "testimonials": [
+    {
+      "clientName": "Sarah Jenkins",
+      "clientRole": "Founder, ShopSphere E-commerce",
+      "avatar": "https://placehold.co/100x100/1e1f2c/4a9beb?text=SJ",
+      "rating": 5,
+      "text": "Arulraj delivered our e-commerce landing page ahead of schedule. The animations are incredibly smooth, and our conversion rate increased by 20% after launch. Highly recommended!"
+    },
+    {
+      "clientName": "David Chen",
+      "clientRole": "CTO, FinTech Stack",
+      "avatar": "https://placehold.co/100x100/1e1f2c/8b5cf6?text=DC",
+      "rating": 5,
+      "text": "An exceptionally skilled frontend contractor. He built our study tracking dashboard with React and Python. Clean code, great communication, and fast turnaround."
+    }
   ]
 }
