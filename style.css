@@ -484,13 +484,15 @@ section {
 }
 
 .Tcontainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     padding: 0 4%;
 }
 
 .skill-box {
+    flex: 0 1 130px;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 0.75rem;
