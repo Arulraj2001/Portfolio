@@ -3,10 +3,14 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     list-style: none;
     text-decoration: none;
     scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+    font-family: 'Outfit', sans-serif;
 }
 
 :root {
@@ -257,12 +261,12 @@ section {
     margin-left: 10px;
     font-size: 0.8rem;
     color: #94a3b8;
-    font-family: monospace;
+    font-family: 'Fira Code', monospace;
 }
 
 .card-body {
     padding: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 0.85rem;
     line-height: 1.5;
     text-align: left;
