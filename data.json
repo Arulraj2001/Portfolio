@@ -8,31 +8,54 @@
       "title": "ApplyAppli - SaaS Job Tracker",
       "link": "https://arulraj2001.github.io/applyappli/",
       "previewImg": "https://arulraj2001.github.io/applyappli/preview.png",
-      "techStack": ["HTML5", "CSS3", "JavaScript", "LocalStorage"]
+      "techStack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "LocalStorage"
+      ]
     },
     {
       "title": "Interactive Diwali Campaign Hub",
       "link": "https://diwali-giveaway.vercel.app/",
       "previewImg": "https://diwali-giveaway.vercel.app/og-image.png",
-      "techStack": ["React.js", "Vercel", "API Integration"]
+      "techStack": [
+        "React.js",
+        "Vercel",
+        "API Integration"
+      ]
     },
     {
       "title": "Dynamic Certificate Generator",
       "link": "https://valentines-cert.vercel.app/",
       "previewImg": "https://valentines-cert.vercel.app/preview.jpg",
-      "techStack": ["HTML5", "CSS3", "JavaScript"]
+      "techStack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript"
+      ]
     },
     {
       "title": "Full-Stack Productivity Dashboard",
       "link": "https://study-tracker-dash--medidate2023.replit.app/",
       "previewImg": "https://study-tracker-dash--medidate2023.replit.app/static/preview.png",
-      "techStack": ["Python", "Flask", "Chart.js", "MySQL"]
+      "techStack": [
+        "Python",
+        "Flask",
+        "Chart.js",
+        "MySQL"
+      ]
     },
     {
       "title": "Weather Analytics Portal",
       "link": "https://arulraj2001.github.io/weatherProject/",
       "previewImg": "img/web3.png",
-      "techStack": ["HTML5", "CSS3", "JavaScript", "API Integration"]
+      "techStack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "API Integration"
+      ]
     }
   ]
 }
