@@ -29,10 +29,15 @@ h1, h2, h3, h4, h5, h6, .logo {
     --p-font: 1rem;
 }
 
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background: var(--bg-color);
     color: var(--text-color);
-    overflow-x: hidden;
     position: relative;
 }
 
@@ -1105,6 +1110,122 @@ section {
     border-color: var(--main-color);
     box-shadow: 0 5px 15px var(--main-glow);
 }
+/* ================= PREMIUM 3D & GLOW EFFECTS ================= */
+.work-card, .box, .process-step, .faq-item {
+    position: relative;
+}
+
+.work-card::before, .box::before, .process-step::before, .faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: radial-gradient(
+        400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+        rgba(74, 155, 235, 0.12),
+        transparent 60%
+    );
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.work-card:hover::before, .box:hover::before, .process-step:hover::before, .faq-item:hover::before {
+    opacity: 1;
+}
+
+/* Ensure card contents stack correctly above the glow layer */
+.work-info, .preview-container,
+.box h3, .box p, .box i, .certificate-wrapper,
+.process-step h3, .process-step p, .step-num,
+.faq-question, .faq-answer {
+    position: relative;
+    z-index: 2;
+}
+
+/* Upgrade Card Boundaries & Borders on Hover */
+.work-card, .box, .process-step, .faq-item {
+    transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.work-card:hover, .box:hover, .process-step:hover, .faq-item:hover {
+    border-color: rgba(74, 155, 235, 0.4) !important;
+    box-shadow: 0 15px 35px rgba(74, 155, 235, 0.12), 0 0 20px rgba(74, 155, 235, 0.05) !important;
+}
+
+/* ================= FAQ ACCORDION SECTION ================= */
+.faq {
+    padding-bottom: 80px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 5px 15px rgba(74, 155, 235, 0.1);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.faq-question i {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+}
+
+.faq-answer p {
+    color: var(--second-color);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Active State for Accordion */
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    margin-top: 15px;
+}
 
 /* ================= TO-TOP BUTTON & FOOTER ================= */
 .last-text p {
@@ -1187,9 +1308,8 @@ section {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-}
 
-@media (max-width: 830px) {
+    /* Menu / Navigation responsive changes */
     #menu-icon {
         display: block;
     }
@@ -1229,5 +1349,60 @@ section {
     .btn {
         padding: 10px 24px;
         font-size: 0.9rem;
+    }
+
+    /* Core Technology Stack Layout responsiveness */
+    .Tcontainer {
+        gap: 1rem;
+        padding: 0;
+    }
+    .skill-box {
+        flex: 0 1 calc(50% - 0.5rem);
+        min-width: 110px;
+        padding: 16px 8px;
+    }
+
+    /* Development Process Grid responsiveness */
+    .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .process-step {
+        padding: 25px 20px;
+    }
+
+    /* Stats grid wrap */
+    .about-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .about-stats div {
+        width: 100% !important;
+        min-width: unset !important;
+        text-align: center;
+    }
+}
+
+/* Specific styling for smaller viewports (e.g. mobile phones) */
+@media (max-width: 500px) {
+    /* Project Works Grid responsiveness */
+    .works-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    /* Testimonial Cards responsiveness */
+    .testimonial-card {
+        width: 280px !important;
+        padding: 16px 20px !important;
+    }
+    .testimonial-text {
+        font-size: 0.82rem !important;
+    }
+
+    /* Floating top button positioning */
+    .top {
+        bottom: 1.5rem;
+        right: 1.5rem;
     }
 }

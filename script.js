@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 }).join('');
                 initImageFallback();
+                init3DTiltEffect();
             }
             
             // Render testimonial items
@@ -129,3 +130,68 @@ window.addEventListener('scroll', () => {
         progressEl.style.width = scrolled + '%';
     }
 });
+
+// FAQ Accordion toggling interaction logic
+document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            // Close other active FAQ items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            // Toggle clicked item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Initialize 3D card tilts for static page elements
+    init3DTiltEffect();
+});
+
+// 3D Card Tilt & Mouse-Glow Effects
+function init3DTiltEffect() {
+    const cards = document.querySelectorAll('.work-card, .box, .process-step, .faq-item');
+    cards.forEach(card => {
+        // Remove existing listener references to avoid duplicates
+        card.removeEventListener('mousemove', handleCardMouseMove);
+        card.removeEventListener('mouseleave', handleCardMouseLeave);
+        
+        card.addEventListener('mousemove', handleCardMouseMove);
+        card.addEventListener('mouseleave', handleCardMouseLeave);
+    });
+}
+
+function handleCardMouseMove(e) {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // mouse x within card
+    const y = e.clientY - rect.top;  // mouse y within card
+    
+    // Set custom properties for hover glow position
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+    
+    // Calculate 3D rotations based on card center
+    const width = rect.width;
+    const height = rect.height;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    
+    // Max tilt: 8 degrees for a subtle and elegant look
+    const maxTilt = 8;
+    const rotateX = ((centerY - y) / centerY) * maxTilt;
+    const rotateY = ((x - centerX) / centerX) * maxTilt;
+    
+    // Apply transform style (perspective makes it 3D)
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+}
+
+function handleCardMouseLeave(e) {
+    const card = e.currentTarget;
+    // Reset transform smoothly back to initial state
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+}
