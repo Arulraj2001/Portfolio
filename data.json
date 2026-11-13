@@ -1,77 +1,112 @@
 {
-  "stats": {
-    "studentProjects": "80+",
-    "brandWebsites": "3+"
+  "profile": {
+    "name": "Arulraj S",
+    "headline": "AI Builder | Full-Stack Engineer | SaaS Founder",
+    "agency": "Founder, Ostrune (Custom Websites, Mobile Apps & Lead Generation Agency)",
+    "agencyUrl": "https://ostrune.netlify.app/",
+    "education": "Master of Computer Applications (MCA), Periyar University (CGPA 8.0)",
+    "location": "Tiruvannamalai / Chennai, Tamil Nadu (Open to Bangalore & Worldwide Remote)",
+    "phone": "+918637474067",
+    "whatsapp": "https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20interested%20in%20discussing%20a%20website%20or%20mobile%20app%20project%20with%20Ostrune.",
+    "email": "arulraj8637@gmail.com",
+    "github": "https://github.com/Arulraj2001",
+    "linkedin": "https://www.linkedin.com/in/arulraj1506/"
   },
-  "projects": [
+  "stats": [
+    { "value": "80+", "label": "Client Projects & SaaS Delivered" },
+    { "value": "150+", "label": "Free Tools on QuickUtils" },
+    { "value": "1,400+", "label": "Indexed URLs on VizhiTN" },
+    { "value": "7–14", "label": "Days Delivery Sprint" }
+  ],
+  "ostrune": {
+    "title": "Ostrune — Custom Websites, Mobile Apps & Lead Generation Agency",
+    "url": "https://ostrune.netlify.app/",
+    "tagline": "We Build High-Speed Websites & Apps That Grow Your Business.",
+    "description": "High-performance websites and mobile apps built for growing businesses. Custom full-stack engineering (Next.js, React, Node, Python) and modern CMS solutions (Shopify, WordPress, Wix) with transparent pricing, 7–14 day delivery sprints, and global collaboration.",
+    "pillars": [
+      {
+        "title": "Custom Website Engineering",
+        "desc": "Tailor-made business websites, web applications, and e-commerce portals on the exact tech stack you require (Next.js, React, Node, Python). Guaranteed sub-second edge latency and zero plugin bloat."
+      },
+      {
+        "title": "Mobile Application Development",
+        "desc": "Cross-platform iOS and Android apps built with React Native and Flutter. Fast database synchronization, native 60fps UX, and guaranteed app store approvals."
+      },
+      {
+        "title": "Speed Overhaul & SEO",
+        "desc": "Audit and eliminate sluggish legacy plugins to guarantee 100/100 Core Web Vitals and sub-second page loads."
+      },
+      {
+        "title": "B2B & Commercial Lead Generation",
+        "desc": "Predictable lead acquisition engines, Meta & LinkedIn ads, and local business marketing funnels."
+      }
+    ]
+  },
+  "clientWorks": [
     {
-      "title": "ApplyAppli - SaaS Job Tracker",
-      "link": "https://arulraj2001.github.io/applyappli/",
-      "previewImg": "img/applyappli.png",
-      "techStack": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "LocalStorage"
-      ]
+      "id": "nandhini",
+      "title": "Nandhini Makeup & Jewellery",
+      "tag": "Client Website • Bridal & Jewellery Rental",
+      "preview": "img/nandhini_preview.png",
+      "desc": "Flawless HD & Glossy bridal makeup artistry starting at ₹5,999 paired with Salem's finest antique temple, AD, and Victorian jewellery for rent starting at ₹999/day with direct WhatsApp booking.",
+      "stack": ["Next.js", "Supabase", "Tailwind CSS", "WhatsApp Booking Flow", "Vercel"],
+      "liveUrl": "https://nandhinimakeupartist.vercel.app/"
     },
     {
-      "title": "Interactive Diwali Campaign Hub",
-      "link": "https://diwali-giveaway.vercel.app/",
-      "previewImg": "img/diwali.png",
-      "techStack": [
-        "React.js",
-        "Vercel",
-        "API Integration"
-      ]
+      "id": "velaash",
+      "title": "Velaash — Everyday Essentials & Pooja Brass Decor",
+      "tag": "Client E-Commerce • Retail Brand",
+      "preview": "img/velaash_preview.png",
+      "desc": "Modern digital store and product showcase for clothing (men & women) and traditional pooja brass essentials with fast product exploration and conversion optimization.",
+      "stack": ["E-Commerce Architecture", "Product Catalogs", "Responsive Design", "Performance SEO"],
+      "liveUrl": "https://velaash.in/"
     },
     {
-      "title": "Dynamic Certificate Generator",
-      "link": "https://valentines-cert.vercel.app/",
-      "previewImg": "img/certificate.png",
-      "techStack": [
-        "HTML5",
-        "CSS3",
-        "JavaScript"
-      ]
+      "id": "yourchoice",
+      "title": "Your Choice Properties — Plots & Villas",
+      "tag": "Client Website • Real Estate Firm",
+      "preview": "img/yourchoice_preview.png",
+      "desc": "Comprehensive real estate portal showcasing DTCP approved residential plots, gated community layouts, and custom villas in Namakkal and Paramathi Velur with lead inquiry funnels.",
+      "stack": ["Real Estate Portal", "DTCP Property Showcase", "Local SEO", "Lead Capture Funnel"],
+      "liveUrl": "https://yourchoiceproperties.in/"
     },
     {
-      "title": "Full-Stack Productivity Dashboard",
-      "link": "https://study-tracker-dash--medidate2023.replit.app/",
-      "previewImg": "img/dashboard.png",
-      "techStack": [
-        "Python",
-        "Flask",
-        "Chart.js",
-        "MySQL"
-      ]
-    },
-    {
-      "title": "Weather Analytics Portal",
-      "link": "https://arulraj2001.github.io/weatherProject/",
-      "previewImg": "img/weather.png",
-      "techStack": [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "API Integration"
-      ]
+      "id": "ostrune-agency",
+      "title": "Ostrune — Custom Websites & Mobile Apps Agency",
+      "tag": "Digital Agency • Founder",
+      "preview": "img/ostrune_preview.png",
+      "desc": "Full-service digital agency building high-speed websites, React Native mobile apps, and B2B lead generation engines on custom stacks (Next.js, React, Node, Python) with 7–14 day delivery sprints.",
+      "stack": ["Next.js", "React Native", "Node.js", "Python", "Technical SEO", "7-14 Day Sprints"],
+      "liveUrl": "https://ostrune.netlify.app/"
     }
   ],
-  "testimonials": [
+  "products": [
     {
-      "clientName": "Sarah Jenkins",
-      "clientRole": "Founder, ShopSphere E-commerce",
-      "avatar": "https://placehold.co/100x100/1e1f2c/4a9beb?text=SJ",
-      "rating": 5,
-      "text": "Arulraj delivered our e-commerce landing page ahead of schedule. The animations are incredibly smooth, and our conversion rate increased by 20% after launch. Highly recommended!"
+      "id": "quickutils",
+      "title": "QuickUtils — Live SaaS Utility Platform",
+      "tag": "Live Production SaaS • Founder",
+      "preview": "img/quickutils_og.png",
+      "desc": "Built and operate a live platform with 150+ free online tools for PDFs, image conversion, calculators, developer utilities, SEO, and shipping tasks. Serving students, developers, and online sellers.",
+      "stack": ["Next.js", "React.js", "SEO Automation", "Vercel", "Tailwind CSS"],
+      "liveUrl": "https://quickutils.page"
     },
     {
-      "clientName": "David Chen",
-      "clientRole": "CTO, FinTech Stack",
-      "avatar": "https://placehold.co/100x100/1e1f2c/8b5cf6?text=DC",
-      "rating": 5,
-      "text": "An exceptionally skilled frontend contractor. He built our study tracking dashboard with React and Python. Clean code, great communication, and fast turnaround."
+      "id": "vizhitn",
+      "title": "VizhiTN — AI-Powered Civic & Media Platform",
+      "tag": "Civic Tech • Founder",
+      "preview": "img/vizhitn_og.png",
+      "desc": "Bilingual (English & Tamil) civic platform covering all 38 districts of Tamil Nadu. Features 650+ civic posts and 166+ news articles generated via automated Claude API workflows, MLA tracker, and 1,400+ indexed URLs.",
+      "stack": ["Next.js", "Supabase", "Claude API", "Vercel", "Google Search Console", "GA4"],
+      "liveUrl": "https://vizhitn.in"
+    },
+    {
+      "id": "kagazo",
+      "title": "Kagazo — Sovereign Document & Citizen Tool Suite",
+      "tag": "Citizen Tool Suite • Founder",
+      "preview": "img/kagazo_og.png",
+      "desc": "India's sovereign document and exam compliance suite featuring 57+ free tools. Verify government PDF digital signatures, format exam photos for UPSC & TNPSC, print 5-in-1 A4 sheets, and mask Aadhaar with zero-retention privacy.",
+      "stack": ["Next.js", "PDF Engine", "Client-Side Processing", "Privacy Architecture"],
+      "liveUrl": "https://kagazo.in"
     }
   ]
 }

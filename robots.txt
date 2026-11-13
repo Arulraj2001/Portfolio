@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Canonical XML Sitemap Location
 Sitemap: https://arulraj2001.github.io/Portfolio/sitemap.xml

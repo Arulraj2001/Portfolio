@@ -1,197 +1,132 @@
-const header = document.querySelector("header");
+/**
+ * ARULRAJ S — STUDIO INTERACTIONS & FORM HANDLING
+ */
 
-window.addEventListener("scroll", function() {
-    header.classList.toggle("sticky", window.scrollY > 0);
-});
-
-let menu = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-if (menu) {
-    menu.onclick = () => {
-        menu.classList.toggle('bx-x');
-        navbar.classList.toggle('active');
-    };
-}
-
-window.onscroll = () => {
-    if (menu) {
-        menu.classList.remove('bx-x');
-    }
-    if (navbar) {
-        navbar.classList.remove('active');
-    }
-};
-
-// ScrollReveal Animations
-const sr = ScrollReveal({
-    distance: '25px',
-    duration: 250,
-    reset: true
-});
-
-sr.reveal('.home-text', { delay: 190, origin: 'bottom' });
-sr.reveal('.about, .inner, .services, .experience, .works, .process, .contact', { delay: 200, origin: 'bottom' });
-
-// Fix for work card preview images fallback
-function initImageFallback() {
-    document.querySelectorAll('.preview-img').forEach(img => {
-        img.addEventListener('error', function() {
-            if (!this.src.includes('placehold.co')) {
-                this.src = 'https://placehold.co/600x400/1e1f2c/4a9beb?text=Live+Demo';
-            }
-        });
-    });
-}
-
-initImageFallback();
-
-// Optional: Add smooth hover effect for work cards
-document.querySelectorAll('.work-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transition = 'all .40s ease';
-    });
-});
-
-// Headless CMS - Load data from data.json dynamically
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('data.json')
-        .then(response => response.json())
-        .then(data => {
-            // Update stats metrics
-            if (data.stats) {
-                const studentProjectsEl = document.getElementById('stat-student-projects');
-                const brandWebsitesEl = document.getElementById('stat-brand-websites');
-                if (studentProjectsEl) studentProjectsEl.textContent = data.stats.studentProjects;
-                if (brandWebsitesEl) brandWebsitesEl.textContent = data.stats.brandWebsites;
-            }
-            
-            // Render project items
-            const projectsContainer = document.getElementById('projects-container');
-            if (projectsContainer && data.projects) {
-                projectsContainer.innerHTML = data.projects.map(project => {
-                    const techTags = project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('');
-                    return `
-                        <a href="${project.link}" class="work-card" target="_blank" rel="noopener noreferrer">
-                            <div class="preview-container">
-                                <img src="${project.previewImg}" alt="${project.title}" class="preview-img" onerror="this.src='https://placehold.co/600x400/1e1f2c/4a9beb?text=Live+Demo'">
-                                <div class="overlay">
-                                    <span class="overlay-text">View Live Demo →</span>
-                                </div>
-                            </div>
-                            <div class="work-info">
-                                <h3 class="work-title">${project.title}</h3>
-                                <div class="tech-stack">
-                                    ${techTags}
-                                </div>
-                            </div>
-                        </a>
-                    `;
-                }).join('');
-                initImageFallback();
-                init3DTiltEffect();
-            }
-            
-            // Render testimonial items
-            const testimonialsContainer = document.getElementById('testimonials-container');
-            if (testimonialsContainer && data.testimonials) {
-                // Duplicate items to ensure seamless marquee looping
-                const marqueeList = [...data.testimonials, ...data.testimonials];
-                testimonialsContainer.innerHTML = marqueeList.map(item => {
-                    const stars = '★'.repeat(item.rating) + '☆'.repeat(5 - item.rating);
-                    return `
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <img src="${item.avatar}" alt="${item.clientName}" class="client-avatar" onerror="this.src='https://placehold.co/100x100/1e1f2c/4a9beb?text=${item.clientName.charAt(0)}'">
-                                <div class="client-info">
-                                    <h3>${item.clientName}</h3>
-                                    <p>${item.clientRole}</p>
-                                </div>
-                            </div>
-                            <div class="rating-stars">${stars}</div>
-                            <p class="testimonial-text">"${item.text}"</p>
-                        </div>
-                    `;
-                }).join('');
-            }
-        })
-        .catch(err => {
-            console.warn('Could not load data.json, using static HTML fallback:', err);
+    // 1. Mobile Drawer Navigation
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    if (mobileBtn && mobileDrawer) {
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileDrawer.classList.toggle('open');
+            mobileBtn.classList.toggle('active');
+            mobileDrawer.setAttribute('aria-hidden', !isOpen);
         });
-});
 
-// Advanced Feature: Scroll Progress Bar
-window.addEventListener('scroll', () => {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = winScroll && height ? (winScroll / height) * 100 : 0;
-    const progressEl = document.querySelector('.scroll-progress');
-    if (progressEl) {
-        progressEl.style.width = scrolled + '%';
-    }
-});
-
-// FAQ Accordion toggling interaction logic
-document.addEventListener('DOMContentLoaded', () => {
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
-            // Close other active FAQ items
-            faqItems.forEach(otherItem => {
-                otherItem.classList.remove('active');
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.remove('open');
+                mobileBtn.classList.remove('active');
+                mobileDrawer.setAttribute('aria-hidden', 'true');
             });
-            // Toggle clicked item
-            if (!isActive) {
-                item.classList.add('active');
+        });
+    }
+
+    // 2. FAQ Accordion Mechanics
+    const accTriggers = document.querySelectorAll('.acc-trigger');
+    accTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+            const body = trigger.nextElementSibling;
+
+            // Close other items
+            accTriggers.forEach(other => {
+                if (other !== trigger) {
+                    other.setAttribute('aria-expanded', 'false');
+                    const otherBody = other.nextElementSibling;
+                    if (otherBody) otherBody.style.maxHeight = null;
+                }
+            });
+
+            if (isExpanded) {
+                trigger.setAttribute('aria-expanded', 'false');
+                body.style.maxHeight = null;
+            } else {
+                trigger.setAttribute('aria-expanded', 'true');
+                body.style.maxHeight = body.scrollHeight + 'px';
             }
         });
     });
 
-    // Initialize 3D card tilts for static page elements
-    init3DTiltEffect();
+    // 3. Project Inquiry Form with WhatsApp Payload Routing
+    const projectForm = document.getElementById('projectForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    if (projectForm) {
+        projectForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('clientName').value.trim();
+            const business = document.getElementById('businessName').value.trim();
+            const phone = document.getElementById('contactMethod').value.trim();
+            const projectType = document.getElementById('projectType').value;
+            const details = document.getElementById('projectDetails').value.trim();
+
+            if (!name || !phone || !projectType) {
+                if (formFeedback) {
+                    formFeedback.textContent = 'Please fill out all required fields marked with *.';
+                    formFeedback.style.color = '#EF4444';
+                }
+                return;
+            }
+
+            const message = `*New Project Inquiry for Arulraj*%0A%0A` +
+                            `*Client Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Business / Brand:* ${encodeURIComponent(business || 'N/A')}%0A` +
+                            `*Contact Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `*Project Type:* ${encodeURIComponent(projectType)}%0A` +
+                            `*Details:* ${encodeURIComponent(details || 'Ready to discuss on call')}`;
+
+            if (formFeedback) {
+                formFeedback.className = 'form-feedback success';
+                formFeedback.textContent = 'Opening WhatsApp with your project details...';
+            }
+
+            setTimeout(() => {
+                const whatsappUrl = `https://wa.me/918637474067?text=${message}`;
+                window.open(whatsappUrl, '_blank', 'noopener');
+                if (formFeedback) {
+                    formFeedback.textContent = 'Thank you! If WhatsApp did not open automatically, message me at +91 86374 74067.';
+                }
+                projectForm.reset();
+            }, 500);
+        });
+    }
+
+    // 4. GSAP Scroll Animations (Optional & non-blocking)
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from('.hero-left', {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-visual-card', {
+            opacity: 0,
+            scale: 0.96,
+            duration: 0.9,
+            delay: 0.2,
+            ease: 'power3.out'
+        });
+
+        const productCards = document.querySelectorAll('.product-item');
+        productCards.forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%'
+                },
+                opacity: 0,
+                y: 35,
+                duration: 0.7,
+                delay: (i % 2) * 0.1,
+                ease: 'power3.out'
+            });
+        });
+    }
 });
-
-// 3D Card Tilt & Mouse-Glow Effects
-function init3DTiltEffect() {
-    const cards = document.querySelectorAll('.work-card, .box, .process-step, .faq-item');
-    cards.forEach(card => {
-        // Remove existing listener references to avoid duplicates
-        card.removeEventListener('mousemove', handleCardMouseMove);
-        card.removeEventListener('mouseleave', handleCardMouseLeave);
-        
-        card.addEventListener('mousemove', handleCardMouseMove);
-        card.addEventListener('mouseleave', handleCardMouseLeave);
-    });
-}
-
-function handleCardMouseMove(e) {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; // mouse x within card
-    const y = e.clientY - rect.top;  // mouse y within card
-    
-    // Set custom properties for hover glow position
-    card.style.setProperty('--mouse-x', `${x}px`);
-    card.style.setProperty('--mouse-y', `${y}px`);
-    
-    // Calculate 3D rotations based on card center
-    const width = rect.width;
-    const height = rect.height;
-    const centerX = width / 2;
-    const centerY = height / 2;
-    
-    // Max tilt: 8 degrees for a subtle and elegant look
-    const maxTilt = 8;
-    const rotateX = ((centerY - y) / centerY) * maxTilt;
-    const rotateY = ((x - centerX) / centerX) * maxTilt;
-    
-    // Apply transform style (perspective makes it 3D)
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-}
-
-function handleCardMouseLeave(e) {
-    const card = e.currentTarget;
-    // Reset transform smoothly back to initial state
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-}
