@@ -437,6 +437,98 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    
+    /* ==========================================================================
+       Interactive Split Stage Project Showcase (Zero Vertical Stacking)
+       ========================================================================== */
+    const workSelectItems = document.querySelectorAll('.work-select-item');
+    const workStageCards = document.querySelectorAll('.work-stage-card');
+
+    if (workSelectItems.length > 0 && workStageCards.length > 0) {
+        workSelectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const projectIdx = item.getAttribute('data-project');
+
+                workSelectItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.setAttribute('aria-selected', 'false');
+                });
+                item.classList.add('active');
+                item.setAttribute('aria-selected', 'true');
+
+                workStageCards.forEach(card => {
+                    if (card.getAttribute('data-project-card') === projectIdx) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    /* ==========================================================================
+       Horizontal Career Stepper & Milestone Slider (#experience)
+       ========================================================================== */
+    const stepperNodes = document.querySelectorAll('.stepper-step-node');
+    const stepperSlides = document.querySelectorAll('.stepper-slide');
+    const stepperProgress = document.getElementById('stepperProgressFill');
+    let currentStepIdx = 0;
+    const totalSteps = stepperNodes.length;
+
+    function goToMilestoneStep(idx) {
+        if (idx < 0 || idx >= totalSteps) return;
+        currentStepIdx = idx;
+
+        // Update progress bar width
+        if (stepperProgress && totalSteps > 1) {
+            const pct = (currentStepIdx / (totalSteps - 1)) * 100;
+            stepperProgress.style.width = pct + '%';
+        }
+
+        // Update nodes
+        stepperNodes.forEach((node, i) => {
+            node.classList.remove('active', 'completed');
+            if (i === currentStepIdx) {
+                node.classList.add('active');
+                node.setAttribute('aria-selected', 'true');
+            } else if (i < currentStepIdx) {
+                node.classList.add('completed');
+                node.setAttribute('aria-selected', 'false');
+            } else {
+                node.setAttribute('aria-selected', 'false');
+            }
+        });
+
+        // Update slides
+        stepperSlides.forEach((slide, i) => {
+            if (i === currentStepIdx) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    stepperNodes.forEach((node, i) => {
+        node.addEventListener('click', () => {
+            goToMilestoneStep(i);
+        });
+    });
+
+    // Arrow buttons across all slides
+    document.querySelectorAll('[id^="stepperPrevBtn"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            goToMilestoneStep(currentStepIdx - 1);
+        });
+    });
+
+    document.querySelectorAll('[id^="stepperNextBtn"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            goToMilestoneStep(currentStepIdx + 1);
+        });
+    });
+
     /* ==========================================================================
        3D ROTATING PROOF SHOWCASE ENGINE ("left and right like backwards and make it spins")
        ========================================================================== */

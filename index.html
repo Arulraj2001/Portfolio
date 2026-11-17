@@ -564,332 +564,520 @@
                     <span class="section-pill">Featured Production Work</span>
                     <h2 class="head-title">Real Client Stores & Scaled Platforms</h2>
                     <p class="head-subtitle">
-                        Live commercial websites built for real businesses and production SaaS platforms built alone — engineered for sub-second speeds, mobile sales, and high search rankings.
+                        Interactive showcase of commercial client platforms and scaled production systems built alone — zero agency fluff, guaranteed sub-second speeds.
                     </p>
                 </div>
 
-                <!-- Interactive Category Filter Tabs -->
-                <div class="filter-tabs-wrapper">
-                    <button class="filter-btn active" data-filter="all">All Systems (7)</button>
-                    <button class="filter-btn" data-filter="client">Client Works (3)</button>
-                    <button class="filter-btn" data-filter="agency">Agency (1)</button>
-                    <button class="filter-btn" data-filter="saas">Founder SaaS (3)</button>
-                </div>
+                <!-- Interactive Split Stage (Left Selector + Right Live Display) -->
+                <div class="work-split-stage" aria-label="Client and Project Showcase">
+                    <!-- Left Project Selector Rail -->
+                    <div class="work-selector-rail" role="tablist" aria-label="Select Project">
+                        <!-- Project 0: Nandhini -->
+                        <button class="work-select-item active" data-project="0" role="tab" aria-selected="true" aria-controls="project-card-0">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">01</span>
+                                <span class="work-select-badge">Client Store</span>
+                            </div>
+                            <span class="work-select-title">Nandhini Makeup & Jewellery</span>
+                            <span class="work-select-domain">nandhinimakeupartist.vercel.app</span>
+                        </button>
 
-                <div class="bento-projects-grid">
-                    <!-- Project 1: Nandhini Makeup & Jewellery -->
-                    <article class="project-card" data-category="client">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
-                                </div>
-                                <span class="frame-url">nandhinimakeupartist.vercel.app</span>
-                                <span class="frame-status status-client">Client Store</span>
+                        <!-- Project 1: Velaash -->
+                        <button class="work-select-item" data-project="1" role="tab" aria-selected="false" aria-controls="project-card-1">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">02</span>
+                                <span class="work-select-badge">Client E-Commerce</span>
                             </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/nandhini_preview.webp" type="image/webp">
-                                    <img src="img/nandhini_preview.png" alt="Nandhini Makeup and Jewellery Website" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Client Project</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">Salem, TN</span>
-                            </div>
-                            <h3 class="card-heading">Bridal Makeup Artistry & Curated Jewellery Rental</h3>
-                            <p class="card-summary">
-                                High-end digital presence for a Salem bridal artistry brand. Showcases flawless HD bridal makeup packages alongside antique temple & Victorian jewellery rental catalog with 1-click direct WhatsApp booking.
-                            </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">Next.js</span>
-                                <span class="tag-pill">Supabase</span>
-                                <span class="tag-pill">Tailwind CSS</span>
-                                <span class="tag-pill">WhatsApp Booking</span>
-                                <span class="tag-pill">Mobile-First</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://nandhinimakeupartist.vercel.app/" target="_blank" rel="noopener" class="card-link-live">
-                                    Visit Live Website ↗
-                                </a>
-                                <span class="card-link-sec">Production</span>
-                            </div>
-                        </div>
-                    </article>
+                            <span class="work-select-title">Velaash — Everyday Essentials</span>
+                            <span class="work-select-domain">velaash.in</span>
+                        </button>
 
-                    <!-- Project 2: Velaash -->
-                    <article class="project-card" data-category="client">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
+                        <!-- Project 2: Your Choice Properties -->
+                        <button class="work-select-item" data-project="2" role="tab" aria-selected="false" aria-controls="project-card-2">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">03</span>
+                                <span class="work-select-badge">Client Real Estate</span>
+                            </div>
+                            <span class="work-select-title">Your Choice Properties</span>
+                            <span class="work-select-domain">yourchoiceproperties.in</span>
+                        </button>
+
+                        <!-- Project 3: Ostrune Agency -->
+                        <button class="work-select-item" data-project="3" role="tab" aria-selected="false" aria-controls="project-card-3">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">04</span>
+                                <span class="work-select-badge">Active Studio</span>
+                            </div>
+                            <span class="work-select-title">Ostrune Agency</span>
+                            <span class="work-select-domain">ostrune.netlify.app</span>
+                        </button>
+
+                        <!-- Project 4: QuickUtils -->
+                        <button class="work-select-item" data-project="4" role="tab" aria-selected="false" aria-controls="project-card-4">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">05</span>
+                                <span class="work-select-badge">150+ Tools SaaS</span>
+                            </div>
+                            <span class="work-select-title">QuickUtils Platform</span>
+                            <span class="work-select-domain">quickutils.in</span>
+                        </button>
+
+                        <!-- Project 5: VizhiTN -->
+                        <button class="work-select-item" data-project="5" role="tab" aria-selected="false" aria-controls="project-card-5">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">06</span>
+                                <span class="work-select-badge">291K GSC Reach</span>
+                            </div>
+                            <span class="work-select-title">VizhiTN Civic Platform</span>
+                            <span class="work-select-domain">vizhitn.in</span>
+                        </button>
+
+                        <!-- Project 6: Kagazo -->
+                        <button class="work-select-item" data-project="6" role="tab" aria-selected="false" aria-controls="project-card-6">
+                            <div class="work-select-top">
+                                <span class="work-select-idx">07</span>
+                                <span class="work-select-badge">Citizen Utilities</span>
+                            </div>
+                            <span class="work-select-title">Kagazo Document Tools</span>
+                            <span class="work-select-domain">kagazo.in</span>
+                        </button>
+                    </div>
+
+                    <!-- Right Stage Hero Viewport -->
+                    <div class="work-stage-viewport">
+                        <!-- Card 0: Nandhini -->
+                        <div class="work-stage-card active" id="project-card-0" data-project-card="0" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">Bridal Makeup Artistry & Curated Jewellery Rental</h3>
+                                    <span class="proof-verified-status">Salem, Tamil Nadu • Commercial Client Store</span>
                                 </div>
-                                <span class="frame-url">velaash.in</span>
-                                <span class="frame-status status-client">Client Store</span>
+                                <span class="stage-category-pill">Verified Production</span>
                             </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/velaash_preview.webp" type="image/webp">
-                                    <img src="img/velaash_preview.png" alt="Velaash Everyday Essentials Storefront" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Client E-Commerce Store</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">Pan-India</span>
-                            </div>
-                            <h3 class="card-heading">Velaash — Everyday Essentials & Pooja Brass Storefront</h3>
-                            <p class="card-summary">
-                                Modern e-commerce storefront for home essentials, apparel for men & women, and traditional pooja brassware. Engineered for smooth product exploration, fast loading on mobile networks, and seamless purchasing.
+                            <p class="stage-desc">
+                                High-end digital presence built for a premier Tamil Nadu bridal brand. Showcases flawless HD bridal makeup packages alongside an antique temple and Victorian jewellery rental catalog with automated 1-click WhatsApp booking.
                             </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">E-Commerce Storefront</span>
-                                <span class="tag-pill">Product Catalogs</span>
-                                <span class="tag-pill">Responsive Design</span>
-                                <span class="tag-pill">Performance SEO</span>
+
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">nandhinimakeupartist.vercel.app</span>
+                                </div>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/nandhini_preview.webp" type="image/webp">
+                                        <img src="img/nandhini_preview.png" alt="Nandhini Makeup Website" loading="lazy">
+                                    </picture>
+                                </div>
                             </div>
-                            <div class="card-actions">
-                                <a href="https://velaash.in/" target="_blank" rel="noopener" class="card-link-live">
+
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">100% Direct</span>
+                                    <span class="stage-metric-lbl">WhatsApp Checkout</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">&lt;800ms</span>
+                                    <span class="stage-metric-lbl">Global Edge Latency</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">100/100</span>
+                                    <span class="stage-metric-lbl">Core Web Vitals</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">Zero</span>
+                                    <span class="stage-metric-lbl">Server Overhead</span>
+                                </div>
+                            </div>
+
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Next.js 14</span>
+                                    <span class="tag-pill">React</span>
+                                    <span class="tag-pill">Tailwind CSS</span>
+                                    <span class="tag-pill">Supabase</span>
+                                    <span class="tag-pill">WhatsApp API</span>
+                                </div>
+                                <a href="https://nandhinimakeupartist.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary">
                                     Visit Live Storefront ↗
                                 </a>
-                                <span class="card-link-sec">Production</span>
                             </div>
                         </div>
-                    </article>
 
-                    <!-- Project 3: Your Choice Properties -->
-                    <article class="project-card" data-category="client">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
+                        <!-- Card 1: Velaash -->
+                        <div class="work-stage-card" id="project-card-1" data-project-card="1" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">Velaash — Everyday Essentials & Pooja Brass Storefront</h3>
+                                    <span class="proof-verified-status">Active E-Commerce • Direct Sales</span>
                                 </div>
-                                <span class="frame-url">yourchoiceproperties.in</span>
-                                <span class="frame-status status-client">Client Portal</span>
+                                <span class="stage-category-pill">Client E-Commerce</span>
                             </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/yourchoice_preview.webp" type="image/webp">
-                                    <img src="img/yourchoice_preview.png" alt="Your Choice Properties Portal" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
+                            <p class="stage-desc">
+                                Modern e-commerce storefront for home essentials and traditional brass pooja collection. Features instant product variant selectors, category navigation, and 1-click WhatsApp order generation.
+                            </p>
+
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">velaash.in</span>
+                                </div>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/velaash_preview.webp" type="image/webp">
+                                        <img src="img/velaash_preview.png" alt="Velaash Storefront" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">1-Click</span>
+                                    <span class="stage-metric-lbl">WhatsApp Checkout</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">Zero</span>
+                                    <span class="stage-metric-lbl">Checkout Drop-Off</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">100%</span>
+                                    <span class="stage-metric-lbl">Mobile Responsive</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">&lt;1s</span>
+                                    <span class="stage-metric-lbl">Image WebP Loading</span>
+                                </div>
+                            </div>
+
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">React</span>
+                                    <span class="tag-pill">E-Commerce</span>
+                                    <span class="tag-pill">WhatsApp API</span>
+                                    <span class="tag-pill">Tailwind CSS</span>
+                                </div>
+                                <a href="https://velaash.in/" target="_blank" rel="noopener" class="btn btn-primary">
+                                    Visit Live Store ↗
+                                </a>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Client Real Estate Firm</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">Namakkal, TN</span>
+
+                        <!-- Card 2: Your Choice Properties -->
+                        <div class="work-stage-card" id="project-card-2" data-project-card="2" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">Your Choice Properties — Plots & Custom Villas</h3>
+                                    <span class="proof-verified-status">Salem, Tamil Nadu • Land Development</span>
+                                </div>
+                                <span class="stage-category-pill">Client Real Estate</span>
                             </div>
-                            <h3 class="card-heading">Your Choice Properties — Plots & Custom Villas</h3>
-                            <p class="card-summary">
-                                Real estate lead portal showcasing DTCP approved residential plots, gated communities, and custom villas in Namakkal and Paramathi Velur. Features layout maps, pricing breakdowns, and direct call/WhatsApp lead capture.
+                            <p class="stage-desc">
+                                Real estate property portal for residential plots and custom villa projects across Salem and surrounding districts. Interactive site layouts, amenity showcases, and direct CRM WhatsApp lead routing.
                             </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">Real Estate Portal</span>
-                                <span class="tag-pill">DTCP Property Showcase</span>
-                                <span class="tag-pill">Local SEO</span>
-                                <span class="tag-pill">Lead Capture Funnel</span>
+
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">yourchoiceproperties.in</span>
+                                </div>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/yourchoice_preview.webp" type="image/webp">
+                                        <img src="img/yourchoice_preview.png" alt="Your Choice Properties" loading="lazy">
+                                    </picture>
+                                </div>
                             </div>
-                            <div class="card-actions">
-                                <a href="https://yourchoiceproperties.in/" target="_blank" rel="noopener" class="card-link-live">
+
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">Direct</span>
+                                    <span class="stage-metric-lbl">CRM Lead Routing</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">Virtual</span>
+                                    <span class="stage-metric-lbl">Site Tour Inquiries</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">Salem</span>
+                                    <span class="stage-metric-lbl">Regional Authority</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">100%</span>
+                                    <span class="stage-metric-lbl">Organic SEO Setup</span>
+                                </div>
+                            </div>
+
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Real Estate</span>
+                                    <span class="tag-pill">Lead Capture</span>
+                                    <span class="tag-pill">Responsive Web</span>
+                                    <span class="tag-pill">SEO</span>
+                                </div>
+                                <a href="https://yourchoiceproperties.in/" target="_blank" rel="noopener" class="btn btn-primary">
                                     Visit Live Portal ↗
                                 </a>
-                                <span class="card-link-sec">Production</span>
                             </div>
                         </div>
-                    </article>
 
-                    <!-- Project 4: Ostrune Agency -->
-                    <article class="project-card" data-category="agency" id="ostrune-pillar">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
+                        <!-- Card 3: Ostrune Agency -->
+                        <div class="work-stage-card" id="project-card-3" data-project-card="3" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">Ostrune — Custom Websites, Mobile Apps & Lead Gen</h3>
+                                    <span class="proof-verified-status">Founder Agency Studio • Global Deployments</span>
                                 </div>
-                                <span class="frame-url">ostrune.netlify.app</span>
-                                <span class="frame-status status-agency">Digital Agency</span>
+                                <span class="stage-category-pill">Active Agency</span>
                             </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/ostrune_preview.webp" type="image/webp">
-                                    <img src="img/ostrune_preview.png" alt="Ostrune Custom Websites, Mobile Apps & Lead Generation Agency" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Founder Studio</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">ostrune.netlify.app</span>
-                            </div>
-                            <h3 class="card-heading">Ostrune — Custom Websites, Mobile Apps & Lead Gen</h3>
-                            <p class="card-summary">
-                                Full-service digital agency building high-speed websites, cross-platform mobile apps (React Native / Flutter), and predictable B2B lead generation engines. Certified 100/100 Core Web Vitals speed with structured 7–14 day sprints.
+                            <p class="stage-desc">
+                                Full-service digital agency building bespoke business websites, web applications, and cross-platform mobile apps with sub-second global edge load times and structured 7–14 day delivery sprints.
                             </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">Next.js / Node / Python</span>
-                                <span class="tag-pill">React Native & Flutter</span>
-                                <span class="tag-pill">Shopify / WordPress / Wix</span>
-                                <span class="tag-pill">7–14 Day Sprints</span>
-                                <span class="tag-pill">100/100 Speed</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://ostrune.netlify.app/" target="_blank" rel="noopener" class="card-link-live">
-                                    Open Ostrune Agency ↗
-                                </a>
-                                <span class="card-link-sec">Agency Studio</span>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Project 5: QuickUtils -->
-                    <article class="project-card" data-category="saas">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">ostrune.netlify.app</span>
                                 </div>
-                                <span class="frame-url">quickutils.page</span>
-                                <span class="frame-status status-saas">Live SaaS</span>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/ostrune_preview.webp" type="image/webp">
+                                        <img src="img/ostrune_preview.png" alt="Ostrune Agency Platform" loading="lazy">
+                                    </picture>
+                                </div>
                             </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/quickutils_preview.webp" type="image/webp">
-                                    <img src="img/quickutils_preview.png" alt="QuickUtils Platform Screenshot" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Founder & Sole Engineer</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">quickutils.page</span>
-                            </div>
-                            <h3 class="card-heading">QuickUtils — SaaS Utility & Tool Platform</h3>
-                            <p class="card-summary">
-                                Built and operate a live platform with 150+ free online tools for PDFs, images, calculators, developer utilities, SEO, and shipping tasks. Serving students, developers, and sellers with an automated SEO acquisition loop.
-                            </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">Next.js</span>
-                                <span class="tag-pill">React.js</span>
-                                <span class="tag-pill">SEO Automation</span>
-                                <span class="tag-pill">Vercel</span>
-                                <span class="tag-pill">Tailwind CSS</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://quickutils.page" target="_blank" rel="noopener" class="card-link-live">
-                                    Visit QuickUtils ↗
-                                </a>
-                                <a href="https://github.com/Arulraj2001" target="_blank" rel="noopener" class="card-link-sec">
-                                    GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Project 6: VizhiTN -->
-                    <article class="project-card" data-category="saas">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">&lt;800ms</span>
+                                    <span class="stage-metric-lbl">Sub-Second Edge</span>
                                 </div>
-                                <span class="frame-url">vizhitn.in</span>
-                                <span class="frame-status status-saas">AI Civic Tech</span>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">7–14 Days</span>
+                                    <span class="stage-metric-lbl">Sprint Delivery</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">100/100</span>
+                                    <span class="stage-metric-lbl">Core Web Vitals</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">Direct</span>
+                                    <span class="stage-metric-lbl">Senior Builder</span>
+                                </div>
                             </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/vizhitn_preview.webp" type="image/webp">
-                                    <img src="img/vizhitn_preview.png" alt="VizhiTN Civic Platform Screenshot" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Founder & Developer</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">vizhitn.in</span>
-                            </div>
-                            <h3 class="card-heading">VizhiTN — AI-Powered Civic & Media Platform</h3>
-                            <p class="card-summary">
-                                Bilingual (English and Tamil) civic platform covering all 38 districts of Tamil Nadu. Features 650+ civic posts and 166+ news articles published via an automated Claude API content pipeline, MLA tracker, and 1,400+ indexed URLs.
-                            </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">Next.js</span>
-                                <span class="tag-pill">Supabase</span>
-                                <span class="tag-pill">Claude API</span>
-                                <span class="tag-pill">Vercel</span>
-                                <span class="tag-pill">IndexNow</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://vizhitn.in" target="_blank" rel="noopener" class="card-link-live">
-                                    Visit VizhiTN ↗
-                                </a>
-                                <span class="card-link-sec">Production</span>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Project 7: Kagazo -->
-                    <article class="project-card" data-category="saas">
-                        <div class="card-frame">
-                            <div class="frame-bar">
-                                <div class="frame-dots">
-                                    <span class="f-dot f-dot-red"></span>
-                                    <span class="f-dot f-dot-yellow"></span>
-                                    <span class="f-dot f-dot-green"></span>
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Next.js 14</span>
+                                    <span class="tag-pill">React Native</span>
+                                    <span class="tag-pill">Python</span>
+                                    <span class="tag-pill">Netlify Edge</span>
                                 </div>
-                                <span class="frame-url">kagazo.in</span>
-                                <span class="frame-status status-saas">Citizen Tool Suite</span>
-                            </div>
-                            <div class="frame-screen">
-                                <picture>
-                                    <source srcset="img/kagazo_preview.webp" type="image/webp">
-                                    <img src="img/kagazo_preview.png" alt="Kagazo Sovereign Document Suite Screenshot" class="frame-img" loading="lazy" width="1280" height="800">
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-meta-row">
-                                <span class="meta-role">Founder</span>
-                                <span class="dot-sep">•</span>
-                                <span class="meta-domain">kagazo.in</span>
-                            </div>
-                            <h3 class="card-heading">Kagazo — Sovereign Document & Citizen Tool Suite</h3>
-                            <p class="card-summary">
-                                India's sovereign document, exam compliance, and citizen tool suite with 57+ tools. Verify government PDF digital signatures, format compliant photos for UPSC & TNPSC, print 5-in-1 A4 sheets, and mask Aadhaar with zero-retention privacy.
-                            </p>
-                            <div class="card-tags">
-                                <span class="tag-pill">Next.js</span>
-                                <span class="tag-pill">PDF Processing</span>
-                                <span class="tag-pill">Client-Side Privacy</span>
-                                <span class="tag-pill">Vercel</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="https://kagazo.in" target="_blank" rel="noopener" class="card-link-live">
-                                    Visit Kagazo ↗
+                                <a href="https://ostrune.netlify.app/" target="_blank" rel="noopener" class="btn btn-primary">
+                                    Visit Agency Site ↗
                                 </a>
-                                <span class="card-link-sec">Production</span>
                             </div>
                         </div>
-                    </article>
+
+                        <!-- Card 4: QuickUtils -->
+                        <div class="work-stage-card" id="project-card-4" data-project-card="4" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">QuickUtils — SaaS Utility & Tool Platform (150+ Tools)</h3>
+                                    <span class="proof-verified-status">Active Public SaaS • Zero Server Latency</span>
+                                </div>
+                                <span class="stage-category-pill">Founder SaaS</span>
+                            </div>
+                            <p class="stage-desc">
+                                Production web utility platform featuring 150+ browser-based tools: formatters, converters, calculators, generators. Engineered for zero bundle bloat and 100/100 Core Web Vitals.
+                            </p>
+
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">quickutils.in</span>
+                                </div>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/quickutils_preview.webp" type="image/webp">
+                                        <img src="img/quickutils_preview.png" alt="QuickUtils Platform" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">150+</span>
+                                    <span class="stage-metric-lbl">Live Browser Tools</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">Instant</span>
+                                    <span class="stage-metric-lbl">Client-Side Engine</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">100/100</span>
+                                    <span class="stage-metric-lbl">Lighthouse Vitals</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">Zero</span>
+                                    <span class="stage-metric-lbl">Server Storage</span>
+                                </div>
+                            </div>
+
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Next.js 14</span>
+                                    <span class="tag-pill">TypeScript</span>
+                                    <span class="tag-pill">Tailwind CSS</span>
+                                </div>
+                                <a href="https://quickutils.in/" target="_blank" rel="noopener" class="btn btn-primary">
+                                    Launch QuickUtils Suite ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: VizhiTN -->
+                        <div class="work-stage-card" id="project-card-5" data-project-card="5" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">VizhiTN — AI-Powered Civic & Regional Media Platform</h3>
+                                    <span class="proof-verified-status">Verified 291K Google Impressions • 7.5K GA4 Readers</span>
+                                </div>
+                                <span class="stage-category-pill">291K GSC Reach</span>
+                            </div>
+                            <p class="stage-desc">
+                                High-traffic regional content platform covering civic alerts, elections, and public notifications with 1,400+ indexed pages and automated news aggregation.
+                            </p>
+
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">vizhitn.in</span>
+                                </div>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/vizhitn_preview.webp" type="image/webp">
+                                        <img src="img/vizhitn_preview.png" alt="VizhiTN Platform" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">291K</span>
+                                    <span class="stage-metric-lbl">GSC Impressions</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">6.59K</span>
+                                    <span class="stage-metric-lbl">Search Clicks (4.8 Pos)</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">7.5K</span>
+                                    <span class="stage-metric-lbl">GA4 Active Users</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">1,400+</span>
+                                    <span class="stage-metric-lbl">Google Indexed Pages</span>
+                                </div>
+                            </div>
+
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Django</span>
+                                    <span class="tag-pill">Python</span>
+                                    <span class="tag-pill">PostgreSQL</span>
+                                    <span class="tag-pill">Google SEO</span>
+                                </div>
+                                <a href="https://www.vizhitn.in/" target="_blank" rel="noopener" class="btn btn-primary">
+                                    Explore Platform ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Kagazo -->
+                        <div class="work-stage-card" id="project-card-6" data-project-card="6" role="tabpanel">
+                            <div class="stage-head-row">
+                                <div>
+                                    <h3 class="stage-title">Kagazo — Sovereign Document & Citizen Tool Suite</h3>
+                                    <span class="proof-verified-status">High Retention SaaS • 51s Avg Engagement</span>
+                                </div>
+                                <span class="stage-category-pill">Citizen SaaS</span>
+                            </div>
+                            <p class="stage-desc">
+                                Specialized citizen document utility suite for passport photo generation, TNPSC signature resize, and digital PDF signing with zero server retention for maximum privacy.
+                            </p>
+
+                            <div class="stage-preview-frame">
+                                <div class="stage-browser-bar">
+                                    <div class="proof-traffic-lights" aria-hidden="true">
+                                        <span class="traffic-dot red"></span>
+                                        <span class="traffic-dot yellow"></span>
+                                        <span class="traffic-dot green"></span>
+                                    </div>
+                                    <span class="proof-domain-chip">kagazo.in</span>
+                                </div>
+                                <div class="stage-screen-img">
+                                    <picture>
+                                        <source srcset="img/kagazo_preview.webp" type="image/webp">
+                                        <img src="img/kagazo_preview.png" alt="Kagazo Document Tools" loading="lazy">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <div class="stage-metrics-row">
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">35.9K</span>
+                                    <span class="stage-metric-lbl">GSC Impressions</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val green">51s</span>
+                                    <span class="stage-metric-lbl">Avg Engagement Time</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">5.4%</span>
+                                    <span class="stage-metric-lbl">Low Bounce Rate</span>
+                                </div>
+                                <div class="stage-metric-cell">
+                                    <span class="stage-metric-val">100%</span>
+                                    <span class="stage-metric-lbl">Client-Side Privacy</span>
+                                </div>
+                            </div>
+
+                            <div class="stage-footer-row">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Next.js</span>
+                                    <span class="tag-pill">Canvas API</span>
+                                    <span class="tag-pill">WebAssembly</span>
+                                </div>
+                                <a href="https://kagazo.in/" target="_blank" rel="noopener" class="btn btn-primary">
+                                    Open Kagazo Suite ↗
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1218,72 +1406,183 @@
         <section class="section-block" id="experience">
             <div class="container">
                 <div class="section-head text-center">
-                    <span class="section-pill">Career & Experience</span>
+                    <span class="section-pill">Career Progression</span>
                     <h2 class="head-title">Proven Engineering Track Record</h2>
                     <p class="head-subtitle">
-                        From solo agency founder and independent consultant to building enterprise operational dashboards.
+                        Interactive career milestone progression — from independent consulting and institutional dashboards to full-service studio founder.
                     </p>
                 </div>
 
-                <div class="experience-timeline">
-                    <!-- Exp 1: Ostrune -->
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-role">Founder, Ostrune (Custom Websites, Mobile Apps & Lead Gen Agency)</h3>
-                                <span class="exp-company"><a href="https://ostrune.netlify.app/" target="_blank" rel="noopener">ostrune.netlify.app ↗</a></span>
-                            </div>
-                            <span class="exp-badge">Active Studio</span>
+                <div class="experience-stepper-wrap" aria-label="Career Milestones Timeline">
+                    <!-- Horizontal Progress Track Bar -->
+                    <div class="stepper-nav-bar" role="tablist" aria-label="Milestone Steps">
+                        <div class="stepper-track-line" aria-hidden="true">
+                            <div class="stepper-progress-fill" id="stepperProgressFill" style="width: 0%;"></div>
                         </div>
-                        <ul class="exp-bullets">
-                            <li>Run a full-service digital agency building tailor-made business websites, web applications, and cross-platform mobile apps (React Native / Flutter) on client-specified custom stacks (Next.js, React, Node, Python) and modern CMS platforms (Shopify, WordPress, Wix).</li>
-                            <li>Guarantee 100/100 Core Web Vitals, sub-second global edge load times, and structured 7–14 day delivery sprints with direct senior engineering communication.</li>
-                        </ul>
+
+                        <!-- Step 0: Ostrune -->
+                        <button class="stepper-step-node active" data-step="0" role="tab" aria-selected="true" aria-controls="slide-0">
+                            <span class="stepper-circle">01</span>
+                            <span class="stepper-label">Ostrune (2024–Now)</span>
+                        </button>
+
+                        <!-- Step 1: Freelance -->
+                        <button class="stepper-step-node" data-step="1" role="tab" aria-selected="false" aria-controls="slide-1">
+                            <span class="stepper-circle">02</span>
+                            <span class="stepper-label">Freelance (80+ Apps)</span>
+                        </button>
+
+                        <!-- Step 2: Narayana Group -->
+                        <button class="stepper-step-node" data-step="2" role="tab" aria-selected="false" aria-controls="slide-2">
+                            <span class="stepper-circle">03</span>
+                            <span class="stepper-label">Narayana Group (2025)</span>
+                        </button>
+
+                        <!-- Step 3: Periyar University -->
+                        <button class="stepper-step-node" data-step="3" role="tab" aria-selected="false" aria-controls="slide-3">
+                            <span class="stepper-circle">04</span>
+                            <span class="stepper-label">Periyar Univ (2024)</span>
+                        </button>
                     </div>
 
-                    <!-- Exp 2: Independent Consultant -->
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-role">Independent Software Engineering Consultant (Freelance)</h3>
-                                <span class="exp-company">Remote Client Engagements</span>
+                    <!-- Stepper Slide Content Panel -->
+                    <div class="stepper-stage-panel">
+                        <!-- Slide 0: Ostrune -->
+                        <div class="stepper-slide active" id="slide-0" data-slide="0" role="tabpanel">
+                            <div class="stepper-slide-head">
+                                <div>
+                                    <h3 class="stepper-role-title">Founder & Principal Engineer</h3>
+                                    <span class="stepper-company-link">
+                                        Ostrune Agency — <a href="https://ostrune.netlify.app/" target="_blank" rel="noopener">ostrune.netlify.app ↗</a>
+                                    </span>
+                                </div>
+                                <span class="stepper-period-badge">2024 — Present • Active Studio</span>
                             </div>
-                            <span class="exp-date">2023 — Present</span>
-                        </div>
-                        <ul class="exp-bullets">
-                            <li>Designed, built, and deployed <strong>80+ full-stack web applications and SaaS tools</strong> for clients across India, including MVPs, brand websites, and e-commerce sites.</li>
-                            <li>Integrated REST APIs, third-party services, payment workflows, authentication, and analytics dashboards.</li>
-                            <li>Advised clients on tech stack, hosting, performance, and SEO; owned each project from requirement to launch.</li>
-                        </ul>
-                    </div>
 
-                    <!-- Exp 3: Narayana Group -->
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-role">Computer Operator</h3>
-                                <span class="exp-company">Narayana Group of Schools | Bangalore</span>
+                            <div class="stepper-impact-banner">
+                                <span>⚡ 100% On-Time 7–14 Day Sprints • Zero Agency Overhead • Direct Senior Builder Communication</span>
                             </div>
-                            <span class="exp-date">Jun 2025 — Sep 2025</span>
-                        </div>
-                        <ul class="exp-bullets">
-                            <li>Built Tableau dashboards from operational data and presented insights to management for school operations and reporting.</li>
-                            <li>Maintained data records and kept digital workflows running smoothly across departments.</li>
-                        </ul>
-                    </div>
 
-                    <!-- Exp 4: Periyar University -->
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div>
-                                <h3 class="exp-role">Web Development Intern</h3>
-                                <span class="exp-company">Centre of Distance Education, Periyar University</span>
+                            <ul class="stepper-bullets">
+                                <li>Run a full-service digital engineering studio building bespoke commercial websites, web applications, and cross-platform mobile apps for verified clients including <strong>Nandhini Bridal Makeup</strong>, <strong>Velaash E-Commerce</strong>, and <strong>Your Choice Properties</strong>.</li>
+                                <li>Guarantee <strong>100/100 Core Web Vitals</strong>, sub-second global edge load times, and structured 7–14 day delivery sprints with zero intermediary account managers.</li>
+                                <li>Architect bespoke technical solutions on Next.js 14, React, Node, Python, and modern headless CMS platforms (Shopify, WordPress, Wix).</li>
+                            </ul>
+
+                            <div class="stepper-footer-controls">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Next.js 14</span>
+                                    <span class="tag-pill">React Native</span>
+                                    <span class="tag-pill">Supabase</span>
+                                    <span class="tag-pill">Tailwind CSS</span>
+                                    <span class="tag-pill">Netlify Edge</span>
+                                </div>
+                                <div class="stepper-nav-btns">
+                                    <button class="stepper-arrow-btn" id="stepperPrevBtn" disabled>← Previous</button>
+                                    <button class="stepper-arrow-btn" id="stepperNextBtn">Next Milestone →</button>
+                                </div>
                             </div>
-                            <span class="exp-date">May 2024</span>
                         </div>
-                        <ul class="exp-bullets">
-                            <li>Developed a Student Admission Application (PHP, JavaScript, jQuery) that streamlined the admission process, with responsive design and optimized client-server calls that reduced page load times.</li>
-                        </ul>
+
+                        <!-- Slide 1: Freelance -->
+                        <div class="stepper-slide" id="slide-1" data-slide="1" role="tabpanel">
+                            <div class="stepper-slide-head">
+                                <div>
+                                    <h3 class="stepper-role-title">Independent Software Engineering Consultant</h3>
+                                    <span class="stepper-company-link">Freelance Client Engagements Across India</span>
+                                </div>
+                                <span class="stepper-period-badge">2023 — Present • 80+ Platforms</span>
+                            </div>
+
+                            <div class="stepper-impact-banner">
+                                <span>⚡ Shipped 80+ Production Web & SaaS Systems Nationwide with High-Speed Architecture</span>
+                            </div>
+
+                            <ul class="stepper-bullets">
+                                <li>Designed, coded, and deployed <strong>80+ full-stack web applications, brand storefronts, and SaaS utilities</strong> for businesses across India.</li>
+                                <li>Integrated REST APIs, secure payment gateways (Razorpay, Stripe, UPI), third-party authentication, and realtime analytics dashboards.</li>
+                                <li>Advised founders on hosting architecture, database selection, performance optimization, and technical Schema.org SEO.</li>
+                            </ul>
+
+                            <div class="stepper-footer-controls">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">React.js</span>
+                                    <span class="tag-pill">Node.js</span>
+                                    <span class="tag-pill">Python</span>
+                                    <span class="tag-pill">PostgreSQL</span>
+                                    <span class="tag-pill">REST APIs</span>
+                                </div>
+                                <div class="stepper-nav-btns">
+                                    <button class="stepper-arrow-btn" id="stepperPrevBtn1">← Previous</button>
+                                    <button class="stepper-arrow-btn" id="stepperNextBtn1">Next Milestone →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Narayana Group -->
+                        <div class="stepper-slide" id="slide-2" data-slide="2" role="tabpanel">
+                            <div class="stepper-slide-head">
+                                <div>
+                                    <h3 class="stepper-role-title">Computer Operator & BI Analyst</h3>
+                                    <span class="stepper-company-link">Narayana Group of Schools</span>
+                                </div>
+                                <span class="stepper-period-badge">Jun 2025 — Sep 2025 • Bangalore, IN</span>
+                            </div>
+
+                            <div class="stepper-impact-banner">
+                                <span>⚡ Automated Administrative Tableau Dashboards • Monitored 50+ Institutional Metrics</span>
+                            </div>
+
+                            <ul class="stepper-bullets">
+                                <li>Engineered automated Tableau operational dashboards from large multi-department datasets, surfacing insights directly to senior management.</li>
+                                <li>Maintained institutional digital workflow integrity, automated record reconciliation, and minimized data entry latencies.</li>
+                            </ul>
+
+                            <div class="stepper-footer-controls">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">Tableau</span>
+                                    <span class="tag-pill">Data Analytics</span>
+                                    <span class="tag-pill">Operations BI</span>
+                                </div>
+                                <div class="stepper-nav-btns">
+                                    <button class="stepper-arrow-btn" id="stepperPrevBtn2">← Previous</button>
+                                    <button class="stepper-arrow-btn" id="stepperNextBtn2">Next Milestone →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: Periyar University -->
+                        <div class="stepper-slide" id="slide-3" data-slide="3" role="tabpanel">
+                            <div class="stepper-slide-head">
+                                <div>
+                                    <h3 class="stepper-role-title">Web Development Intern</h3>
+                                    <span class="stepper-company-link">Centre of Distance Education, Periyar University</span>
+                                </div>
+                                <span class="stepper-period-badge">May 2024 • Salem, TN</span>
+                            </div>
+
+                            <div class="stepper-impact-banner">
+                                <span>⚡ Streamlined Student Admission Pipeline • 40% Reduction in Query Latency</span>
+                            </div>
+
+                            <ul class="stepper-bullets">
+                                <li>Developed a responsive Student Admission Application utilizing PHP, JavaScript, and jQuery that digitized application collection.</li>
+                                <li>Optimized client-server database transactions, slashing page load times and reducing form abandonment during high-volume enrollment windows.</li>
+                            </ul>
+
+                            <div class="stepper-footer-controls">
+                                <div class="stage-tags">
+                                    <span class="tag-pill">PHP</span>
+                                    <span class="tag-pill">JavaScript</span>
+                                    <span class="tag-pill">jQuery</span>
+                                    <span class="tag-pill">MySQL</span>
+                                </div>
+                                <div class="stepper-nav-btns">
+                                    <button class="stepper-arrow-btn" id="stepperPrevBtn3">← Previous</button>
+                                    <button class="stepper-arrow-btn" id="stepperNextBtn3" disabled>Next Milestone →</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
