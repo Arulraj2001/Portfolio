@@ -246,6 +246,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (counted) return;
         statNumbers.forEach(el => {
             const rawText = el.textContent.trim();
+            // Preserve ranges like 7–14 without mangling into 714
+            if (rawText.includes('–') || rawText.includes('-')) {
+                return;
+            }
             const hasPlus = rawText.includes('+');
             const targetVal = parseInt(rawText.replace(/[^0-9]/g, ''), 10);
 
