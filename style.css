@@ -1,3 +1,15 @@
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+}
+
+section[id],
+.section-block,
+.proof-stage-section {
+    scroll-margin-top: 96px;
+}
+
 /* ==========================================================================
    ARULRAJ S — ULTRA-PREMIER DIGITAL STUDIO & FULL-STACK AI BUILDER
    Aesthetic: Stripe x Linear x Apple Light Studio (Awwwards SOTD Standard)
@@ -1383,8 +1395,9 @@ ul {
 
 .founder-photo {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
+    object-position: center top;
     border-radius: var(--radius-md);
     margin-bottom: 1.25rem;
 }
@@ -1932,5 +1945,717 @@ ul {
     .footer-bottom-bar {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+
+/* ==========================================================================
+   3D ROTATING PROOF STAGE (Google Search Console & Google Analytics 4)
+   ========================================================================== */
+.proof-stage-section {
+    padding: var(--space-3xl) 0;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 50%, #FFFFFF 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.proof-stage-header {
+    margin-bottom: 2rem;
+}
+
+.proof-3d-stage {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    height: 580px;
+    margin: 2rem auto 1.5rem;
+    perspective: 1400px;
+}
+
+.proof-card-3d {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 72%;
+    max-width: 680px;
+    height: 100%;
+    margin-left: -36%;
+    border-radius: 20px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.65s ease, filter 0.65s ease, box-shadow 0.65s ease;
+    user-select: none;
+    will-change: transform, opacity;
+}
+
+.proof-card-3d.card-center {
+    transform: translateX(0) translateZ(40px) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 30;
+    filter: blur(0px);
+    box-shadow: 0 30px 65px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.07);
+    cursor: default;
+    pointer-events: auto;
+}
+
+.proof-card-3d.card-left {
+    transform: translateX(-56%) translateZ(-120px) rotateY(22deg) scale(0.85);
+    opacity: 0.82;
+    z-index: 10;
+    filter: blur(0.5px);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.proof-card-3d.card-left:hover {
+    opacity: 0.92;
+    transform: translateX(-48%) translateZ(-110px) rotateY(18deg) scale(0.89);
+}
+
+.proof-card-3d.card-right {
+    transform: translateX(56%) translateZ(-120px) rotateY(-22deg) scale(0.85);
+    opacity: 0.82;
+    z-index: 10;
+    filter: blur(0.5px);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.proof-card-3d.card-right:hover {
+    opacity: 0.92;
+    transform: translateX(48%) translateZ(-110px) rotateY(-18deg) scale(0.89);
+}
+
+.proof-card-3d.card-hidden {
+    transform: translateX(0) translateZ(-340px) rotateY(180deg) scale(0.66);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Chrome Window Bar */
+.proof-card-chrome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: #F8F9FA;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.proof-traffic-lights {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.traffic-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.traffic-dot.red { background: #FF5F56; }
+.traffic-dot.yellow { background: #FFBD2E; }
+.traffic-dot.green { background: #27C93F; }
+
+.proof-platform-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.platform-icon-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+.platform-icon-pill.gsc {
+    background: rgba(66, 133, 244, 0.12);
+    color: #1A73E8;
+}
+.platform-icon-pill.ga4 {
+    background: rgba(234, 67, 53, 0.12);
+    color: #EA4335;
+}
+
+.proof-domain-chip {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+}
+
+/* Metrics Ribbon */
+.proof-metrics-ribbon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0.75rem 1.25rem;
+    gap: 0.75rem;
+}
+
+.proof-metric-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.proof-metric-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+.proof-metric-val.highlight-green {
+    color: var(--color-emerald-dark);
+}
+.proof-metric-val.highlight-blue {
+    color: #1A73E8;
+}
+
+.proof-metric-lbl {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+/* Viewport Image */
+.proof-viewport {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #F1F3F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-in;
+}
+
+.proof-viewport img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+}
+
+.proof-card-3d.card-center:hover .proof-viewport img {
+    transform: scale(1.02);
+}
+
+.proof-card-footer {
+    padding: 0.75rem 1.25rem;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+.proof-verified-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 600;
+    color: var(--color-emerald-dark);
+}
+
+.proof-verified-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-emerald-main);
+    box-shadow: 0 0 6px var(--color-emerald-main);
+}
+
+.proof-inspect-hint {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Controls */
+.proof-controls-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.proof-nav-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--color-text-main);
+    transition: all 0.2s ease;
+}
+
+.proof-nav-btn:hover {
+    background: var(--color-text-main);
+    color: #FFFFFF;
+    border-color: var(--color-text-main);
+    transform: scale(1.06);
+}
+
+.proof-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.proof-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.proof-dot.active {
+    width: 32px;
+    background: var(--color-text-main);
+}
+
+.proof-auto-status {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin-top: 0.65rem;
+}
+
+/* ==========================================================================
+   BENTO COMPARISON GRID (The Social Media Ceiling vs Owned Asset)
+   ========================================================================== */
+.comparison-bento-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.comparison-hero-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.comparison-hero-card .comp-head {
+    margin-bottom: 1.5rem;
+}
+
+.comparison-hero-card .comp-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.4rem;
+}
+
+.comparison-hero-card .comp-sub {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.comparison-split-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: auto;
+}
+
+.comp-col {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+}
+
+.comp-col.bad {
+    background: #FFF5F5;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.comp-col.good {
+    background: #F0FDF4;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.comp-col-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.comp-col.bad .comp-col-header {
+    color: #DC2626;
+}
+
+.comp-col.good .comp-col-header {
+    color: #166534;
+}
+
+.comp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.comp-list li {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.comp-col.bad .comp-list li {
+    color: #7F1D1D;
+}
+
+.comp-col.good .comp-list li {
+    color: #14532D;
+}
+
+.comp-icon {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.comparison-side-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.bento-mini-card {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mini-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-emerald-dark);
+    margin-bottom: 0.75rem;
+}
+
+.mini-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.mini-card-p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.mini-card-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.speed-metric-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    background: rgba(34, 197, 94, 0.1);
+    color: #15803D;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.wa-preview-box {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.65rem 0.95rem;
+    background: #EBFBEE;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    border-radius: 10px;
+    font-size: 0.82rem;
+    color: #0F5132;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   SPRINT ROADMAP SECTION (7-14 Day Delivery Process)
+   ========================================================================== */
+.sprint-roadmap-section {
+    padding: var(--space-3xl) 0;
+    background: #FFFFFF;
+}
+
+.sprint-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    position: relative;
+}
+
+.sprint-card {
+    background: #FAF9F6;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sprint-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.14);
+    background: #FFFFFF;
+}
+
+.sprint-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.sprint-phase-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-emerald-dark);
+    background: rgba(34, 197, 94, 0.1);
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+}
+
+.sprint-day-badge {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+}
+
+.sprint-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.sprint-card-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.sprint-deliverable-list {
+    margin-top: auto;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 0.75rem;
+}
+
+.sprint-deliverable-list li {
+    font-size: 0.78rem;
+    color: var(--color-text-main);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sprint-deliverable-list li::before {
+    content: '✓';
+    color: var(--color-emerald-main);
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+/* Lightbox Modal */
+.proof-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.proof-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.proof-lightbox-content {
+    max-width: 1100px;
+    max-height: 90vh;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    background: #000;
+    position: relative;
+}
+
+.proof-lightbox-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    display: block;
+    object-fit: contain;
+}
+
+.proof-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease;
+}
+
+.proof-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .comparison-bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .sprint-track {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .proof-3d-stage {
+        height: 480px;
+        perspective: 900px;
+    }
+    .proof-card-3d {
+        width: 92%;
+        margin-left: -46%;
+    }
+    .proof-card-3d.card-left {
+        transform: translateX(-42%) translateZ(-110px) rotateY(18deg) scale(0.88);
+    }
+    .proof-card-3d.card-right {
+        transform: translateX(42%) translateZ(-110px) rotateY(-18deg) scale(0.88);
+    }
+    .proof-metrics-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0.6rem 0.85rem;
+        gap: 0.5rem;
+    }
+    .proof-metric-val {
+        font-size: 1.05rem;
+    }
+    .comparison-split-cols {
+        grid-template-columns: 1fr;
+    }
+    .sprint-track {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .proof-domain-chip {
+        display: none !important;
+    }
+    .proof-card-chrome {
+        padding: 0.6rem 0.85rem;
+    }
+    .proof-platform-badge span:last-child {
+        font-size: 0.76rem;
     }
 }

@@ -416,4 +416,167 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    /* ==========================================================================
+       3D ROTATING PROOF SHOWCASE ENGINE ("left and right like backwards and make it spins")
+       ========================================================================== */
+    const proofStage = document.querySelector('.proof-3d-stage');
+    const proofCards = document.querySelectorAll('.proof-card-3d');
+    const proofDots = document.querySelectorAll('.proof-dot');
+    const proofPrevBtn = document.getElementById('proofPrevBtn');
+    const proofNextBtn = document.getElementById('proofNextBtn');
+
+    if (proofStage && proofCards.length > 0) {
+        let currentProofIdx = 0;
+        const totalProofs = proofCards.length;
+        let autoSpinTimer = null;
+        let isStageHovered = false;
+
+        function updateProofStage() {
+            proofCards.forEach((card, i) => {
+                card.classList.remove('card-center', 'card-left', 'card-right', 'card-hidden');
+
+                const diff = (i - currentProofIdx + totalProofs) % totalProofs;
+
+                if (diff === 0) {
+                    card.classList.add('card-center');
+                    card.setAttribute('aria-hidden', 'false');
+                } else if (diff === 1) {
+                    card.classList.add('card-right');
+                    card.setAttribute('aria-hidden', 'true');
+                } else if (diff === totalProofs - 1) {
+                    card.classList.add('card-left');
+                    card.setAttribute('aria-hidden', 'true');
+                } else {
+                    card.classList.add('card-hidden');
+                    card.setAttribute('aria-hidden', 'true');
+                }
+            });
+
+            proofDots.forEach((dot, idx) => {
+                if (idx === currentProofIdx) {
+                    dot.classList.add('active');
+                    dot.setAttribute('aria-selected', 'true');
+                } else {
+                    dot.classList.remove('active');
+                    dot.setAttribute('aria-selected', 'false');
+                }
+            });
+        }
+
+        function nextProofSlide() {
+            currentProofIdx = (currentProofIdx + 1) % totalProofs;
+            updateProofStage();
+        }
+
+        function prevProofSlide() {
+            currentProofIdx = (currentProofIdx - 1 + totalProofs) % totalProofs;
+            updateProofStage();
+        }
+
+        function goToProofSlide(index) {
+            currentProofIdx = index;
+            updateProofStage();
+        }
+
+        function startAutoSpin() {
+            stopAutoSpin();
+            autoSpinTimer = setInterval(() => {
+                if (!isStageHovered) {
+                    nextProofSlide();
+                }
+            }, 3800);
+        }
+
+        function stopAutoSpin() {
+            if (autoSpinTimer) {
+                clearInterval(autoSpinTimer);
+                autoSpinTimer = null;
+            }
+        }
+
+        // Click card to rotate or zoom
+        proofCards.forEach((card, index) => {
+            card.addEventListener('click', (e) => {
+                if (card.classList.contains('card-left')) {
+                    prevProofSlide();
+                } else if (card.classList.contains('card-right')) {
+                    nextProofSlide();
+                } else if (card.classList.contains('card-center')) {
+                    openProofLightbox(card);
+                }
+            });
+        });
+
+        if (proofPrevBtn) proofPrevBtn.addEventListener('click', prevProofSlide);
+        if (proofNextBtn) proofNextBtn.addEventListener('click', nextProofSlide);
+
+        proofDots.forEach((dot, idx) => {
+            dot.addEventListener('click', () => {
+                goToProofSlide(idx);
+            });
+        });
+
+        // Hover pause
+        proofStage.addEventListener('mouseenter', () => {
+            isStageHovered = true;
+        });
+        proofStage.addEventListener('mouseleave', () => {
+            isStageHovered = false;
+        });
+
+        // Touch swipe support for mobile devices
+        let touchStartX = 0;
+        proofStage.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            isStageHovered = true;
+        }, { passive: true });
+
+        proofStage.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            const diffX = touchEndX - touchStartX;
+            if (Math.abs(diffX) > 40) {
+                if (diffX < 0) nextProofSlide();
+                else prevProofSlide();
+            }
+            isStageHovered = false;
+        }, { passive: true });
+
+        // Initialize state & spin
+        updateProofStage();
+        startAutoSpin();
+    }
+
+    // Lightbox modal functionality
+    const proofLightbox = document.getElementById('proofLightbox');
+    const proofLightboxImg = document.getElementById('proofLightboxImg');
+    const proofLightboxClose = document.getElementById('proofLightboxClose');
+
+    function openProofLightbox(card) {
+        if (!proofLightbox || !proofLightboxImg) return;
+        const img = card.querySelector('.proof-viewport img');
+        if (img) {
+            proofLightboxImg.src = img.src;
+            proofLightboxImg.alt = img.alt;
+            proofLightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    if (proofLightboxClose) {
+        proofLightboxClose.addEventListener('click', () => {
+            proofLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    if (proofLightbox) {
+        proofLightbox.addEventListener('click', (e) => {
+            if (e.target === proofLightbox) {
+                proofLightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
 });
