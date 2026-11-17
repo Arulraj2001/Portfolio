@@ -1,13 +1,14 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 96px;
+    scroll-padding-top: 140px;
 }
 
 section[id],
 .section-block,
-.proof-stage-section {
-    scroll-margin-top: 96px;
+.proof-stage-section,
+.sprint-roadmap-section {
+    scroll-margin-top: 140px;
 }
 
 /* ==========================================================================
@@ -43,6 +44,11 @@ section[id],
     --color-emerald: #059669;
     --color-emerald-light: #10B981;
     --color-emerald-bg: #ECFDF5;
+    --color-emerald-main: #059669;
+    --color-emerald-dark: #047857;
+    --color-text-main: #0B0F19;
+    --color-text-light: #64748B;
+    --space-3xl: clamp(4.5rem, 8vw, 7rem);
     --color-lime: #84CC16;
     --color-lime-bg: #F7FEE7;
 
@@ -1953,7 +1959,7 @@ ul {
    3D ROTATING PROOF STAGE (Google Search Console & Google Analytics 4)
    ========================================================================== */
 .proof-stage-section {
-    padding: var(--space-3xl) 0;
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
     overflow: hidden;
     position: relative;
     background: linear-gradient(180deg, #FFFFFF 0%, #F8F9FA 50%, #FFFFFF 100%);
@@ -2443,7 +2449,7 @@ ul {
    SPRINT ROADMAP SECTION (7-14 Day Delivery Process)
    ========================================================================== */
 .sprint-roadmap-section {
-    padding: var(--space-3xl) 0;
+    padding: clamp(4.5rem, 8vw, 7rem) 0;
     background: #FFFFFF;
 }
 
@@ -3815,13 +3821,13 @@ ul {
 }
 
 .stepper-circle {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: #FFFFFF;
-    border: 3px solid #E5E7EB;
-    color: var(--color-text-muted);
-    font-size: 0.85rem;
+    border: 2px solid #CBD5E1;
+    color: #475569;
+    font-size: 0.9rem;
     font-weight: 800;
     font-family: var(--font-mono);
     display: flex;
@@ -3832,16 +3838,17 @@ ul {
 }
 
 .stepper-step-node.active .stepper-circle {
-    border-color: var(--color-emerald-main);
-    background: var(--color-emerald-main);
-    color: #FFFFFF;
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.2);
-    transform: scale(1.1);
+    border-color: #059669 !important;
+    background: #059669 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 0 0 6px rgba(5, 150, 105, 0.22) !important;
+    transform: scale(1.12);
 }
 
 .stepper-step-node.completed .stepper-circle {
-    border-color: var(--color-emerald-main);
-    color: var(--color-emerald-dark);
+    border-color: #059669 !important;
+    background: #ECFDF5 !important;
+    color: #047857 !important;
 }
 
 .stepper-label {
