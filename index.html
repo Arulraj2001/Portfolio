@@ -184,22 +184,118 @@
                 </div>
 
                 <div class="hero-right">
-                    <div class="hero-visual-card">
-                        <div class="card-browser-header">
-                            <span class="b-dot dot-red"></span>
-                            <span class="b-dot dot-yellow"></span>
-                            <span class="b-dot dot-green"></span>
-                            <span class="b-url">nandhinimakeupartist.vercel.app</span>
+                    <!-- 3D Interactive Stack Deck Showcase -->
+                    <div class="hero-deck-container" id="heroDeck">
+                        <!-- Navigation Tabs for Switching Works -->
+                        <div class="deck-nav-tabs" role="tablist" aria-label="Featured Works Showcase">
+                            <button class="deck-tab active" data-deck="0" role="tab" aria-selected="true">
+                                <span class="deck-tab-dot"></span> Nandhini
+                            </button>
+                            <button class="deck-tab" data-deck="1" role="tab" aria-selected="false">
+                                <span class="deck-tab-dot"></span> Velaash
+                            </button>
+                            <button class="deck-tab" data-deck="2" role="tab" aria-selected="false">
+                                <span class="deck-tab-dot"></span> Ostrune
+                            </button>
+                            <button class="deck-tab" data-deck="3" role="tab" aria-selected="false">
+                                <span class="deck-tab-dot"></span> Your Choice
+                            </button>
                         </div>
-                        <div class="card-screenshot-wrapper">
-                            <picture>
-                                <source srcset="img/nandhini_preview.webp" type="image/webp">
-                                <img src="img/nandhini_preview.png" alt="Bridal Makeup & Jewellery Client Website" class="card-screenshot" loading="eager" width="1280" height="800">
-                            </picture>
+
+                        <!-- 3D Perspective Stage -->
+                        <div class="deck-stage">
+                            <!-- Card 0: Nandhini -->
+                            <div class="deck-card active" data-card="0" style="--deck-idx: 0;">
+                                <div class="card-browser-header">
+                                    <span class="b-dot dot-red"></span>
+                                    <span class="b-dot dot-yellow"></span>
+                                    <span class="b-dot dot-green"></span>
+                                    <span class="b-url">nandhinimakeupartist.vercel.app</span>
+                                    <span class="b-status-pill">Live Booking</span>
+                                </div>
+                                <div class="card-screenshot-wrapper">
+                                    <picture>
+                                        <source srcset="img/nandhini_preview.webp" type="image/webp">
+                                        <img src="img/nandhini_preview.png" alt="Nandhini Bridal Makeup Client Website" class="card-screenshot" loading="eager" width="1280" height="800">
+                                    </picture>
+                                </div>
+                                <div class="card-floating-badge">
+                                    <span class="badge-tag">Verified Commercial Client</span>
+                                    <span class="badge-metric">Sub-Second Speed & WhatsApp Booking</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 1: Velaash -->
+                            <div class="deck-card" data-card="1" style="--deck-idx: 1;">
+                                <div class="card-browser-header">
+                                    <span class="b-dot dot-red"></span>
+                                    <span class="b-dot dot-yellow"></span>
+                                    <span class="b-dot dot-green"></span>
+                                    <span class="b-url">velaash.in</span>
+                                    <span class="b-status-pill">E-Commerce</span>
+                                </div>
+                                <div class="card-screenshot-wrapper">
+                                    <picture>
+                                        <source srcset="img/velaash1.webp" type="image/webp">
+                                        <img src="img/velaash1.png" alt="Velaash E-Commerce Brand Store" class="card-screenshot" loading="lazy" width="1280" height="800">
+                                    </picture>
+                                </div>
+                                <div class="card-floating-badge">
+                                    <span class="badge-tag">Fashion E-Commerce</span>
+                                    <span class="badge-metric">Custom Payment & Real-Time Orders</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: Ostrune Agency -->
+                            <div class="deck-card" data-card="2" style="--deck-idx: 2;">
+                                <div class="card-browser-header">
+                                    <span class="b-dot dot-red"></span>
+                                    <span class="b-dot dot-yellow"></span>
+                                    <span class="b-dot dot-green"></span>
+                                    <span class="b-url">ostrune.netlify.app</span>
+                                    <span class="b-status-pill">Global Edge</span>
+                                </div>
+                                <div class="card-screenshot-wrapper">
+                                    <picture>
+                                        <source srcset="img/ostrune.webp" type="image/webp">
+                                        <img src="img/ostrune.png" alt="Ostrune Web Development Agency" class="card-screenshot" loading="lazy" width="1280" height="800">
+                                    </picture>
+                                </div>
+                                <div class="card-floating-badge">
+                                    <span class="badge-tag">Agency Studio Platform</span>
+                                    <span class="badge-metric">100/100 Core Web Vitals & Global Edge</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Your Choice Properties -->
+                            <div class="deck-card" data-card="3" style="--deck-idx: 3;">
+                                <div class="card-browser-header">
+                                    <span class="b-dot dot-red"></span>
+                                    <span class="b-dot dot-yellow"></span>
+                                    <span class="b-dot dot-green"></span>
+                                    <span class="b-url">yourchoiceproperties.in</span>
+                                    <span class="b-status-pill">Lead Engine</span>
+                                </div>
+                                <div class="card-screenshot-wrapper">
+                                    <picture>
+                                        <source srcset="img/yourchoice_preview.webp" type="image/webp">
+                                        <img src="img/yourchoice_preview.png" alt="Your Choice Properties Real Estate Platform" class="card-screenshot" loading="lazy" width="1280" height="800">
+                                    </picture>
+                                </div>
+                                <div class="card-floating-badge">
+                                    <span class="badge-tag">Commercial Real Estate</span>
+                                    <span class="badge-metric">Instant Filtering & High-Intent WhatsApp Leads</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-floating-badge">
-                            <span class="badge-tag">Verified Client Store</span>
-                            <span class="badge-metric">Sub-Second Speed & WhatsApp Booking</span>
+
+                        <!-- Progress Bar & Hint -->
+                        <div class="deck-footer-hint">
+                            <span class="deck-counter"><span id="deckCurrent">01</span> / 04</span>
+                            <div class="deck-progress-track">
+                                <div class="deck-progress-fill" id="deckProgress"></div>
+                            </div>
+                            <span class="deck-instruction">Click tabs or auto-cycles</span>
                         </div>
                     </div>
                 </div>

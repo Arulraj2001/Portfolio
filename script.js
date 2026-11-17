@@ -692,3 +692,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+
+// ==========================================================================
+// 3D Hero Stack Deck Controller
+// ==========================================================================
+function initHeroDeck() {
+    const deckContainer = document.getElementById('heroDeck');
+    if (!deckContainer) return;
+
+    const tabs = deckContainer.querySelectorAll('.deck-tab');
+    const cards = deckContainer.querySelectorAll('.deck-card');
+    const counterEl = document.getElementById('deckCurrent');
+    const progressFill = document.getElementById('deckProgress');
+    const total = cards.length;
+
+    let currentIndex = 0;
+    let autoPlayTimer = null;
+    let isHovered = false;
+
+    function updateDeck(newIndex) {
+        currentIndex = (newIndex + total) % total;
+
+        // Update tabs
+        tabs.forEach((tab, i) => {
+            const isActive = i === currentIndex;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', isActive);
+        });
+
+        // Update 3D card stack classes
+        cards.forEach((card, i) => {
+            card.classList.remove('active', 'behind-1', 'behind-2', 'behind-3');
+            
+            // Calculate distance in cyclical order
+            const offset = (i - currentIndex + total) % total;
+            if (offset === 0) {
+                card.classList.add('active');
+            } else if (offset === 1) {
+                card.classList.add('behind-1');
+            } else if (offset === 2) {
+                card.classList.add('behind-2');
+            } else {
+                card.classList.add('behind-3');
+            }
+        });
+
+        // Update counter & progress
+        if (counterEl) {
+            counterEl.textContent = String(currentIndex + 1).padStart(2, '0');
+        }
+        if (progressFill) {
+            progressFill.style.width = `${((currentIndex + 1) / total) * 100}%`;
+        }
+    }
+
+    // Tab click handlers
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            const idx = parseInt(tab.getAttribute('data-deck'), 10);
+            updateDeck(idx);
+            resetAutoPlay();
+        });
+    });
+
+    // Clicking a behind card brings it forward
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const idx = parseInt(card.getAttribute('data-card'), 10);
+            if (idx !== currentIndex) {
+                updateDeck(idx);
+                resetAutoPlay();
+            }
+        });
+    });
+
+    function startAutoPlay() {
+        if (autoPlayTimer) clearInterval(autoPlayTimer);
+        autoPlayTimer = setInterval(() => {
+            if (!isHovered) {
+                updateDeck(currentIndex + 1);
+            }
+        }, 4200);
+    }
+
+    function resetAutoPlay() {
+        startAutoPlay();
+    }
+
+    deckContainer.addEventListener('mouseenter', () => {
+        isHovered = true;
+    });
+
+    deckContainer.addEventListener('mouseleave', () => {
+        isHovered = false;
+    });
+
+    // Initial positioning
+    updateDeck(0);
+    startAutoPlay();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initHeroDeck();
+});
