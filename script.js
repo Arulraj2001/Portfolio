@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
        6. Interactive Project Category Filter
        ========================================================================== */
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCardsAll = document.querySelectorAll('.project-card');
+    const projectCardsAll = document.querySelectorAll('.curated-work-card, .flagship-showcase, .project-card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -416,6 +416,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    
+    /* ==========================================================================
+       Services Interactive Capability Deck (Accordion)
+       ========================================================================== */
+    const serviceDeckCards = document.querySelectorAll('.service-deck-card');
+
+    serviceDeckCards.forEach(card => {
+        const header = card.querySelector('.service-card-header');
+        if (header) {
+            header.addEventListener('click', () => {
+                const isCurrentlyActive = card.classList.contains('active');
+                // Optional: keep single active accordion or toggle
+                serviceDeckCards.forEach(c => c.classList.remove('active'));
+                if (!isCurrentlyActive) {
+                    card.classList.add('active');
+                }
+            });
+        }
+    });
 
     /* ==========================================================================
        3D ROTATING PROOF SHOWCASE ENGINE ("left and right like backwards and make it spins")
