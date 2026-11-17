@@ -49,9 +49,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-    <div class="ambient-glow" aria-hidden="true">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
+    <canvas id="ambient-canvas"></canvas>
+    <div class="bg-grid-spotlight" aria-hidden="true"></div>
+    <div class="ambient-mesh" aria-hidden="true">
+        <div class="mesh-orb mesh-orb-1"></div>
+        <div class="mesh-orb mesh-orb-2"></div>
     </div>
 
     <!-- Navigation Bar -->
@@ -59,16 +61,16 @@
         <div class="nav-container container">
             <a href="../" class="nav-brand">
                 <span class="brand-avatar-box">
-                    <img src="../img/github_avatar.png" alt="Arulraj S" class="brand-avatar" width="34" height="34">
+                    <img src="../img/github_avatar.png" alt="Arulraj S" class="brand-avatar" width="36" height="36">
                 </span>
                 <span class="brand-name">Arulraj S</span>
-                <span class="status-pill"><span class="status-live-dot"></span> Available</span>
+                <span class="status-live-pill"><span class="live-pulse-dot"></span> Available</span>
             </a>
 
             <nav class="desktop-menu" aria-label="Main Navigation">
                 <ul class="nav-links">
-                    <li><a href="../#client-work" class="menu-link">Client Projects</a></li>
-                    <li><a href="../#products" class="menu-link">SaaS Products</a></li>
+                    <li><a href="../#work" class="menu-link">Featured Work</a></li>
+                    <li><a href="https://ostrune.netlify.app/" target="_blank" rel="noopener" class="menu-link">Ostrune Agency ↗</a></li>
                     <li><a href="./" class="menu-link active">Services</a></li>
                     <li><a href="../#experience" class="menu-link">Experience</a></li>
                     <li><a href="../#about" class="menu-link">About</a></li>
@@ -77,7 +79,8 @@
             </nav>
 
             <div class="nav-right">
-                <a href="../#contact" class="btn btn-lime btn-sm">Let's Talk →</a>
+                <span class="clock-pill" id="liveClock">Chennai, IN • 10:28 PM IST</span>
+                <a href="../#contact" class="btn btn-primary btn-sm">Let's Talk →</a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
                     <span class="btn-line"></span>
                     <span class="btn-line"></span>
@@ -89,8 +92,8 @@
         <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
             <div class="drawer-content container">
                 <ul class="drawer-links">
-                    <li><a href="../#client-work" class="drawer-link">Client Projects</a></li>
-                    <li><a href="../#products" class="drawer-link">SaaS Platforms</a></li>
+                    <li><a href="../#work" class="drawer-link">Featured Work</a></li>
+                    <li><a href="https://ostrune.netlify.app/" target="_blank" rel="noopener" class="drawer-link">Ostrune Agency ↗</a></li>
                     <li><a href="./" class="drawer-link active">Services Overview</a></li>
                     <li><a href="../#experience" class="drawer-link">Experience</a></li>
                     <li><a href="../web-developer-chennai/" class="drawer-link">Chennai Web Services</a></li>
@@ -102,7 +105,7 @@
     </header>
 
     <main>
-        <section class="section-block">
+        <section class="section-block" style="padding-top: 8rem;">
             <div class="container">
                 <div class="section-head text-center">
                     <span class="section-pill">Services Overview</span>
@@ -186,7 +189,7 @@
                 </div>
 
                 <div style="margin-top: 4rem; text-align: center;">
-                    <a href="https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20interested%20in%20discussing%20a%20website%20service." target="_blank" rel="noopener" class="btn btn-lime">
+                    <a href="https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20interested%20in%20discussing%20a%20website%20service." target="_blank" rel="noopener" class="btn btn-primary">
                         Discuss Your Project on WhatsApp →
                     </a>
                 </div>

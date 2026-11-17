@@ -49,23 +49,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-    <div class="ambient-glow" aria-hidden="true">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
+    <canvas id="ambient-canvas"></canvas>
+    <div class="bg-grid-spotlight" aria-hidden="true"></div>
+    <div class="ambient-mesh" aria-hidden="true">
+        <div class="mesh-orb mesh-orb-1"></div>
+        <div class="mesh-orb mesh-orb-2"></div>
     </div>
 
     <header class="studio-nav" id="navbar">
         <div class="nav-container container">
             <a href="../" class="nav-brand">
                 <span class="brand-avatar-box">
-                    <img src="../img/github_avatar.png" alt="Arulraj S" class="brand-avatar" width="34" height="34">
+                    <img src="../img/github_avatar.png" alt="Arulraj S" class="brand-avatar" width="36" height="36">
                 </span>
                 <span class="brand-name">Arulraj S</span>
-                <span class="status-pill"><span class="status-live-dot"></span> Available</span>
+                <span class="status-live-pill"><span class="live-pulse-dot"></span> Available</span>
             </a>
             <nav class="desktop-menu" aria-label="Main Navigation">
                 <ul class="nav-links">
-                    <li><a href="../#client-work" class="menu-link">Client Projects</a></li>
+                    <li><a href="../#work" class="menu-link">Featured Work</a></li>
                     <li><a href="../services/" class="menu-link">Services</a></li>
                     <li><a href="../projects/" class="menu-link">All Work</a></li>
                     <li><a href="../web-developer-chennai/" class="menu-link">Chennai</a></li>
@@ -73,13 +75,14 @@
                 </ul>
             </nav>
             <div class="nav-right">
-                <a href="../#contact" class="btn btn-lime btn-sm">Let's Talk →</a>
+                <span class="clock-pill" id="liveClock">Chennai, IN • 10:32 PM IST</span>
+                <a href="../#contact" class="btn btn-primary btn-sm">Let's Talk →</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section-block">
+        <section class="section-block" style="padding-top: 8rem;">
             <div class="container">
                 <div class="section-head text-center">
                     <span class="section-pill">National Web Services • India</span>
@@ -99,13 +102,13 @@
                         <p class="service-p">No monthly agency retainers or hidden fees. Transparent milestone payments aligned with project deliverables.</p>
                     </div>
                     <div class="service-box">
-                        <h2 class="service-name">High-Speed Mobile Performance</h2>
-                        <p class="service-p">Optimized for sub-second loading on mobile networks across Tier-1, Tier-2, and Tier-3 cities throughout India.</p>
+                        <h2 class="service-name">Direct Senior Builder Communication</h2>
+                        <p class="service-p">Work directly with the software engineer building your system. No account managers, miscommunications, or weeks of waiting.</p>
                     </div>
                 </div>
 
                 <div style="margin-top: 4rem; text-align: center;">
-                    <a href="https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20interested%20in%20discussing%20a%20website%20project%20in%20India." target="_blank" rel="noopener" class="btn btn-lime">
+                    <a href="https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20interested%20in%20discussing%20a%20website%20project." target="_blank" rel="noopener" class="btn btn-primary">
                         Discuss Your Project on WhatsApp →
                     </a>
                 </div>
@@ -115,7 +118,7 @@
 
     <footer class="studio-footer">
         <div class="container footer-bottom-bar">
-            <p>&copy; 2026 Arulraj S. Website Development Services India. Semantic and search-ready.</p>
+            <p>&copy; 2026 Arulraj S. Web Developer India. Serving clients nationwide and globally.</p>
             <div class="footer-sub-actions">
                 <a href="../sitemap.xml">XML Sitemap</a>
                 <span class="dot-sep">•</span>

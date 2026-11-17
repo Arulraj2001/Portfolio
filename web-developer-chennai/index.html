@@ -52,23 +52,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-    <div class="ambient-glow" aria-hidden="true">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
+    <canvas id="ambient-canvas"></canvas>
+    <div class="bg-grid-spotlight" aria-hidden="true"></div>
+    <div class="ambient-mesh" aria-hidden="true">
+        <div class="mesh-orb mesh-orb-1"></div>
+        <div class="mesh-orb mesh-orb-2"></div>
     </div>
 
     <header class="studio-nav" id="navbar">
         <div class="nav-container container">
             <a href="../" class="nav-brand">
                 <span class="brand-avatar-box">
-                    <img src="../img/github_avatar.png" alt="Arulraj S" class="brand-avatar" width="34" height="34">
+                    <img src="../img/github_avatar.png" alt="Arulraj S" class="brand-avatar" width="36" height="36">
                 </span>
                 <span class="brand-name">Arulraj S</span>
-                <span class="status-pill"><span class="status-live-dot"></span> Available</span>
+                <span class="status-live-pill"><span class="live-pulse-dot"></span> Available</span>
             </a>
             <nav class="desktop-menu" aria-label="Main Navigation">
                 <ul class="nav-links">
-                    <li><a href="../#client-work" class="menu-link">Client Projects</a></li>
+                    <li><a href="../#work" class="menu-link">Featured Work</a></li>
                     <li><a href="../services/" class="menu-link">Services</a></li>
                     <li><a href="../projects/" class="menu-link">All Work</a></li>
                     <li><a href="./" class="menu-link active">Chennai</a></li>
@@ -76,13 +78,14 @@
                 </ul>
             </nav>
             <div class="nav-right">
-                <a href="../#contact" class="btn btn-lime btn-sm">Let's Talk →</a>
+                <span class="clock-pill" id="liveClock">Chennai, IN • 10:30 PM IST</span>
+                <a href="../#contact" class="btn btn-primary btn-sm">Let's Talk →</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section-block">
+        <section class="section-block" style="padding-top: 8rem;">
             <div class="container">
                 <div class="section-head text-center">
                     <span class="section-pill">Local Web Development • Chennai, Tamil Nadu</span>
@@ -92,22 +95,33 @@
                     </p>
                 </div>
 
-                <div class="products-grid">
-                    <article class="product-item">
-                        <div class="product-cover">
-                            <img src="../img/nandhini_preview.png" alt="Bridal & Jewellery Website Tamil Nadu" class="cover-image" loading="lazy">
+                <div class="bento-projects-grid" style="max-width: 820px; margin: 0 auto;">
+                    <article class="project-card" data-category="client">
+                        <div class="card-frame">
+                            <div class="frame-bar">
+                                <div class="frame-dots">
+                                    <span class="f-dot f-dot-red"></span>
+                                    <span class="f-dot f-dot-yellow"></span>
+                                    <span class="f-dot f-dot-green"></span>
+                                </div>
+                                <span class="frame-url">nandhinimakeupartist.vercel.app</span>
+                                <span class="frame-status status-client">Tamil Nadu Client</span>
+                            </div>
+                            <div class="frame-screen">
+                                <picture>
+                                    <source srcset="../img/nandhini_preview.webp" type="image/webp">
+                                    <img src="../img/nandhini_preview.png" alt="Bridal & Jewellery Website Tamil Nadu" class="frame-img" loading="lazy" width="1280" height="800">
+                                </picture>
+                            </div>
                         </div>
-                        <div class="product-info">
-                            <h2 class="product-heading">Why Tamil Nadu & Chennai Businesses Work Directly With Me</h2>
-                            <p class="product-summary">
-                                Many business owners in Chennai struggle with marketing agencies that charge inflated retainers, deliver slow template sites, and take days to answer support requests.
+                        <div class="card-body">
+                            <h2 class="card-heading">Why Tamil Nadu & Chennai Businesses Work Directly With Me</h2>
+                            <p class="card-summary" style="-webkit-line-clamp: 6;">
+                                Many business owners in Chennai struggle with traditional agencies that charge high retainers, deliver sluggish template sites, and take days to reply to support requests. As an independent builder in Tamil Nadu, I provide direct WhatsApp access, transparent milestone pricing, sub-second page loads, and websites built to convert visitors into direct customer calls and store visits.
                             </p>
-                            <p class="product-summary">
-                                As an independent full-stack developer based in Tamil Nadu, I provide direct WhatsApp collaboration, clear milestone pricing, sub-second loading performance, and websites built to convert visitors into direct customer calls and store visits.
-                            </p>
-                            <div class="product-cta-bar">
-                                <a href="https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20looking%20for%20a%20website%20developer%20in%20Chennai%20for%20my%20business." target="_blank" rel="noopener" class="btn btn-lime btn-sm">
-                                    Chat on WhatsApp (+91 86374 74067)
+                            <div class="card-actions">
+                                <a href="https://wa.me/918637474067?text=Hi%20Arulraj,%20I'm%20looking%20for%20a%20website%20developer%20in%20Chennai%20for%20my%20business." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                                    Chat on WhatsApp (+91 86374 74067) →
                                 </a>
                             </div>
                         </div>
