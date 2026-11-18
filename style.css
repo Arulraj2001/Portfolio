@@ -88,6 +88,9 @@ html {
     background-color: var(--bg-canvas);
     color: var(--color-text-primary);
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
 }
 
 body {
@@ -97,6 +100,8 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2316,7 +2321,14 @@ ul {
     .about-split,
     .faq-layout,
     .contact-split {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .hero-left,
+    .hero-right {
+        min-width: 0;
+        max-width: 100%;
+        width: 100%;
     }
 
     .hero-title {
@@ -3045,6 +3057,8 @@ ul {
     .proof-3d-stage {
         height: 480px;
         perspective: 900px;
+        overflow: hidden;
+        max-width: 100%;
     }
     .proof-card-3d {
         width: 92%;
@@ -4446,8 +4460,10 @@ ul {
 
 @media (max-width: 768px) {
     .work-split-stage {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         min-height: auto;
+        max-width: 100%;
+        overflow: hidden;
     }
     .work-selector-rail {
         flex-direction: row;
@@ -4457,6 +4473,8 @@ ul {
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         padding: 0.85rem;
         max-height: none;
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
     .work-select-item {
         min-width: 220px;
@@ -4733,8 +4751,19 @@ ul {
 }
 
 @media (max-width: 640px) {
+    .hero-deck-container {
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .deck-nav-tabs {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    .deck-stage {
+        min-height: 240px;
+    }
     .deck-card.behind-1 {
-        transform: translate3d(8px, 10px, -20px) scale(0.97) rotate(1deg);
+        transform: translate3d(6px, 8px, -20px) scale(0.97) rotate(1deg);
     }
     .deck-card.behind-2,
     .deck-card.behind-3 {
